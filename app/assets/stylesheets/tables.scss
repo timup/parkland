@@ -1,0 +1,6 @@
+.js-clickable-rows tr td {
+  cursor: pointer;
+  &.js-clickable-non {
+    cursor: default;
+  }
+}

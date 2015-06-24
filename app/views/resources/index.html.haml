@@ -1,0 +1,7 @@
+.page-header
+  %h1
+    All Resources
+    .pull-right
+      = link_to 'new', new_resource_path
+
+= render 'table', resources: @resources

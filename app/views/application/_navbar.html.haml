@@ -1,0 +1,30 @@
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#parkland-navbar", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "Parkland", root_path, class: "navbar-brand"
+    #parkland-navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li{class: ('active' if controller_name == "resources")}
+          = link_to "Resources", resources_path
+        %li
+          %a{href: "#"} Collections
+        %li
+          %a{href: "#"} Users
+
+      -# .navbar-right
+      -#   %ul.nav.navbar-nav
+      -#     - if user_signed_in?
+      -#       %li
+      -#         = link_to destroy_user_session_path, method: :delete, class: 'navbar-link' do
+      -#           %i.fa.fa-sign-out
+      -#           Sign out
+      -#     - else
+      -#       %li
+      -#         = link_to new_user_session_path, class: 'navbar-link' do
+      -#           %i.fa.fa-sign-in
+      -#           Sign in
