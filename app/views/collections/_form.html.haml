@@ -2,11 +2,5 @@
   = f.error_notification
   .form-inputs
     = f.input :name
-    %h2 Resources
-    #resources
-      = f.simple_fields_for :resources do |resource|
-        = render 'resource_fields', f: resource
-      .links
-        = link_to_add_association 'add resource', f, :resources
   .form-actions
     = f.button :submit
