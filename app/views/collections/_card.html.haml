@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-heading.clearfix
+    %h3.panel-title.pull-left Collection Info
+  .list-group
+    .list-group-item
+      %p.list-group-item-text Name
+      %h4.list-group-item-heading= collection.name
+    .list-group-item
+      %p.list-group-item-text Resources
+      %h4.list-group-item-heading= collection.resources.count
+    .list-group-item
+      %p.list-group-item-text Created
+      %h4.list-group-item-heading= collection.created_at
+    .list-group-item
+      %p.list-group-item-text Last Updated
+      %h4.list-group-item-heading= collection.updated_at
+    
+    

@@ -1,0 +1,8 @@
+.page-header
+  %h1= @collection
+
+.row
+  .col-sm-4
+    = render 'card', collection: @collection
+  .col-sm-8
+    = render 'resources/table', resources: @collection.resources

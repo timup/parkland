@@ -1,7 +1,4 @@
-%h1 Editing resource
+.page-header
+  %h1 Editing Resource
 
-= render 'form'
-
-= link_to 'Show', @resource
-\|
-= link_to 'Back', resources_path
+= render 'form', resource: @resource

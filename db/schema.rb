@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624013321) do
+ActiveRecord::Schema.define(version: 20150624022126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "collections", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -32,11 +38,24 @@ ActiveRecord::Schema.define(version: 20150624013321) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
+  create_table "resource_collections", force: :cascade do |t|
+    t.integer  "resource_id"
+    t.integer  "collection_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "resource_collections", ["collection_id"], name: "index_resource_collections_on_collection_id", using: :btree
+  add_index "resource_collections", ["resource_id"], name: "index_resource_collections_on_resource_id", using: :btree
+
   create_table "resources", force: :cascade do |t|
     t.string   "name"
     t.string   "href"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
   end
 
+  add_foreign_key "resource_collections", "collections"
+  add_foreign_key "resource_collections", "resources"
 end
