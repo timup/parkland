@@ -15,16 +15,17 @@
           = link_to "Collections", collections_path
         %li
           %a{href: "#"} Users
-
-      -# .navbar-right
-      -#   %ul.nav.navbar-nav
-      -#     - if user_signed_in?
-      -#       %li
-      -#         = link_to destroy_user_session_path, method: :delete, class: 'navbar-link' do
-      -#           %i.fa.fa-sign-out
-      -#           Sign out
-      -#     - else
-      -#       %li
-      -#         = link_to new_user_session_path, class: 'navbar-link' do
-      -#           %i.fa.fa-sign-in
-      -#           Sign in
+      .navbar-right
+        %ul.nav.navbar-nav
+          - if user_signed_in?
+            .navbar-text
+              %em= current_user.email
+            %li
+              = link_to destroy_user_session_path, method: :delete, class: 'navbar-link' do
+                %i.fa.fa-sign-out
+                Sign out
+          - else
+            %li
+              = link_to new_user_session_path, class: 'navbar-link' do
+                %i.fa.fa-sign-in
+                Sign in

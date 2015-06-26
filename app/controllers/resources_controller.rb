@@ -1,5 +1,6 @@
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   # GET /resources
   def index
@@ -21,7 +22,7 @@ class ResourcesController < ApplicationController
 
   # POST /resources
   def create
-    @resource = Resource.new(resource_params)
+    @resource = current_user.resources.new(resource_params)
 
     if @resource.save
       redirect_to @resource, notice: 'Resource was successfully created.'
@@ -53,6 +54,6 @@ class ResourcesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def resource_params
-      params.require(:resource).permit(:name, :href)
+      params.require(:resource).permit(:description, :href, :name)
     end
 end

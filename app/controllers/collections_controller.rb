@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   # GET /collections
   def index
@@ -21,7 +22,7 @@ class CollectionsController < ApplicationController
 
   # POST /collections
   def create
-    @collection = Collection.new(collection_params)
+    @collection = current_user.collections.new(collection_params)
 
     if @collection.save
       redirect_to @collection, notice: 'Collection was successfully created.'

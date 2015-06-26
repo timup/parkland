@@ -3,10 +3,17 @@
     %tr
       %th Name
       %th Link
+      %th Owner
       %th.text-right Actions
   %tbody.js-clickable-rows
     - resources.each do |resource|
       %tr{data: {href: "#{resource_path(resource)}"}}
         %td= resource.name
         %td= resource.href
-        %td.js-clickable-non.text-right= link_to 'Edit', edit_resource_path(resource)
+        %td= resource.owner
+        %td.js-clickable-non.text-right
+          .btn-group
+            - if can? :update, resource
+              = link_to edit_resource_path(resource), class: "btn btn-xs btn-primary" do
+                %i.fa.fa-pencil
+                Edit
