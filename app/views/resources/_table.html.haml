@@ -4,7 +4,7 @@
       %th Name
       %th Link
       %th Owner
-      %th.text-right Actions
+      %th.text-right Collect
   %tbody.js-clickable-rows
     - resources.each do |resource|
       %tr{data: {href: "#{resource_path(resource)}"}}
@@ -12,8 +12,11 @@
         %td= resource.href
         %td= resource.owner
         %td.js-clickable-non.text-right
-          .btn-group
-            - if can? :update, resource
-              = link_to edit_resource_path(resource), class: "btn btn-xs btn-primary" do
-                %i.fa.fa-pencil
-                Edit
+          - if can? :collect, resource and current_user.collections.count > 0
+            = form_for resource, url: collect_resource_path(resource), remote: true, html: {method: :post} do |f|
+              = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker"})
+          -# .btn-group
+          -#   - if can? :update, resource
+          -#     = link_to edit_resource_path(resource), class: "btn btn-xs btn-primary" do
+          -#       %i.fa.fa-pencil
+          -#       Edit
