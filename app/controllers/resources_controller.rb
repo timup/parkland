@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_action :set_resource, only: [:show, :edit, :update, :destroy]
+  before_action :set_resource, only: [:collect, :show, :edit, :update, :destroy]
   authorize_resource
 
   # GET /resources
@@ -16,6 +16,29 @@ class ResourcesController < ApplicationController
     @resource = Resource.new
   end
 
+  # POST /resources/1/collect.js
+  def collect
+    new_ids = params[:resource][:collection_ids]
+    old_ids = current_user.collections.includes(:resources).where(resources: {id: @resource.id}).map(&:id) 
+    diff_ids = (new_ids-old_ids)|(old_ids-new_ids)
+    diff_ids.each do |id|
+      begin
+        coll = Collection.find(id)
+        if coll.owner == current_user
+          if coll.resources.include?(@resource)
+            coll.resources.delete(@resource)
+          else
+            coll.resources.push(@resource)
+          end
+        end
+      rescue ActiveRecord::RecordNotFound => e
+      end
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /resources/1/edit
   def edit
   end
@@ -23,7 +46,6 @@ class ResourcesController < ApplicationController
   # POST /resources
   def create
     @resource = current_user.resources.new(resource_params)
-
     if @resource.save
       redirect_to @resource, notice: 'Resource was successfully created.'
     else

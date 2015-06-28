@@ -2,6 +2,9 @@
   %h1
     All Collections
     .pull-right
-      = link_to 'new', new_collection_path
+      - if can? :create, Collection
+        = link_to new_collection_path, class: "btn btn-lg btn-success" do
+          %i.fa.fa-plus
+          Add
 
 = render 'table', collections: @collections

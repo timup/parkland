@@ -5,15 +5,16 @@ class Ability
 
     user ||= User.new
 
-    can [:read], Collection
-    can [:update], Collection, user_id: user.id
-    can [:create], Collection if user.id
+    #Guest
+    can [:read], [Collection, Resource, User]
+    can [:create], User
 
-    can [:read], Resource
-    can [:update], Resource, user_id: user.id
-    can [:create], Resource if user.id
-
-    can [:create, :read], User
-    can [:update], User, id: user.id
+    #User
+    if user.id
+      can [:update], [Collection, Resource], user_id: user.id
+      can [:create], [Collection, Resource]
+      can [:collect], Resource
+      can [:update], User, id: user.id
+    end
   end
 end

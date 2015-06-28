@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: "registrations", sessions: "sessions"}
   resources :collections
-  resources :resources
+  resources :resources do
+    member do
+      post :collect
+    end
+  end
 end
