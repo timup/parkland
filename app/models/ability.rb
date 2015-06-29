@@ -12,6 +12,7 @@ class Ability
     #User
     if user.id
       can [:update], [Collection, Resource], user_id: user.id
+      can [:sort], Collection, user_id: user.id
       can [:create], [Collection, Resource]
       can [:collect], Resource
       can [:update], User, id: user.id

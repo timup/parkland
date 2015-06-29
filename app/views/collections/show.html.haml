@@ -1,8 +1,21 @@
 .page-header
-  %h1= @collection
+  %h1
+    = @collection
+    %small= "by #{@collection.owner}"
 
 .row
-  .col-sm-4
-    = render 'card', collection: @collection
   .col-sm-8
-    = render 'resources/table', resources: @collection.resources
+    %table.table.table-compressed.table-hover.table-striped
+      %tbody.collections-sortable{data: {update: {url: "#{sort_collection_path(@collection)}" }}}
+        - @resource_collections.each do |resource_collection|
+          - resource = resource_collection.resource
+          = content_tag_for :tr, resource do
+            - if current_user == @collection.owner
+              %td.handle [drag]
+            %td.collections-sortable-position
+              = resource_collection.position
+            %td
+              - if resource.href.present?
+                = link_to resource, resource.href
+              - else
+                = "#{resource}"

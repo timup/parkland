@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.2"
 
+gem "acts_as_list"
 gem "airbrake"
 gem "autoprefixer-rails"
 gem "bootstrap-sass", "~> 3.3.5"

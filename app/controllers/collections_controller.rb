@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: [:show, :edit, :update, :destroy]
+  before_action :set_collection, only: [:show, :edit, :update, :destroy, :sort]
   authorize_resource
 
   # GET /collections
@@ -9,6 +9,7 @@ class CollectionsController < ApplicationController
 
   # GET /collections/1
   def show
+    @resource_collections = @collection.resource_collections.includes(:resource).order("position")
   end
 
   # GET /collections/new
@@ -29,6 +30,14 @@ class CollectionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  # POST /collections/1/sort
+  def sort
+    params[:resource].each_with_index do |id, index|
+      ResourceCollection.where({resource_id: id, collection_id: @collection.id}).update_all({position: index+1})
+    end
+    render nothing: true
   end
 
   # PATCH/PUT /collections/1

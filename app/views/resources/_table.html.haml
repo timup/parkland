@@ -14,7 +14,7 @@
         %td.js-clickable-non.text-right
           - if can? :collect, resource and current_user.collections.count > 0
             = form_for resource, url: collect_resource_path(resource), remote: true, html: {method: :post} do |f|
-              = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker"})
+              = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
           -# .btn-group
           -#   - if can? :update, resource
           -#     = link_to edit_resource_path(resource), class: "btn btn-xs btn-primary" do

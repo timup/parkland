@@ -1,3 +1,3 @@
-$("#resource_collection_ids").change(function() {
+$(".resource-collection-ids").change(function() {
   $(this).parent("form").submit();
 });
