@@ -34,3 +34,23 @@ fi
 # Only if this isn't CI
 # if [ -z "$CI" ]; then
 # fi
+
+# Set up the staging and production apps.
+if heroku join --app parkland-staging &> /dev/null; then
+  git remote add staging git@heroku.com:parkland-staging.git || true
+  printf 'You are a collaborator on the "parkland-staging" Heroku app
+'
+else
+  printf 'Ask for access to the "parkland-staging" Heroku app
+'
+fi
+
+if heroku join --app parkland-production &> /dev/null; then
+  git remote add production git@heroku.com:parkland-production.git || true
+  printf 'You are a collaborator on the "parkland-production" Heroku app
+'
+else
+  printf 'Ask for access to the "parkland-production" Heroku app
+'
+fi
+
