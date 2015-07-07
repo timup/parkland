@@ -3,3 +3,22 @@
   color: #777;
   cursor: move;
 }
+
+.collection-panel {
+  display: inline-block;
+  margin: 20px 0 0 0;
+  padding: 40px 0;
+  width: 100%;
+  color: #eee;
+  font-size: 24px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgb(53, 32, 59);
+  .collection-name {
+  }
+  &:hover {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+}
