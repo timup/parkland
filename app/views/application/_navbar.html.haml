@@ -13,13 +13,12 @@
           = link_to "Resources", resources_path
         %li{class: ('active' if controller_name == "collections")}
           = link_to "Collections", collections_path
-        %li
-          %a{href: "#"} Users
+        %li{class: ('active' if controller_name == "users")}
+          = link_to "Users", users_path
       .navbar-right
         %ul.nav.navbar-nav
           - if user_signed_in?
-            .navbar-text
-              %em= current_user.email
+            = link_to current_user, user_path(current_user), class: 'navbar-text'
             %li
               = link_to destroy_user_session_path, method: :delete, class: 'navbar-link' do
                 %i.fa.fa-sign-out

@@ -7,8 +7,4 @@
           %i.fa.fa-plus
           Add
 
-.row
-  - @collections.each do |collection|
-    .col-sm-4
-      = link_to collection_path(collection), class: 'collection-panel' do
-        .collection-name= collection.name
+= render 'tiles', collections: @collections

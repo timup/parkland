@@ -12,4 +12,5 @@ Rails.application.routes.draw do
       post :collect
     end
   end
+  resources :users, only: [:index, :show]
 end

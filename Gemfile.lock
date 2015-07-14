@@ -120,6 +120,8 @@ GEM
       activesupport
       capybara
       i18n
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     haml (4.0.6)
@@ -317,6 +319,7 @@ DEPENDENCIES
   flutie
   font-awesome-rails
   formulaic
+  friendly_id (~> 5.1)
   haml-rails (~> 0.9)
   high_voltage
   i18n-tasks
