@@ -52,12 +52,12 @@ RSpec.describe ResourcesController, :type => :controller do
     end
   end
 
-  describe "GET new" do
-    it "assigns a new resource as @resource" do
-      get :new, {}, valid_session
-      expect(assigns(:resource)).to be_a_new(Resource)
-    end
-  end
+  # describe "GET new" do
+  #   it "assigns a new resource as @resource" do
+  #     get :new, {}, valid_session
+  #     expect(assigns(:resource)).to be_a_new(Resource)
+  #   end
+  # end
 
   describe "GET edit" do
     it "assigns the requested resource as @resource" do

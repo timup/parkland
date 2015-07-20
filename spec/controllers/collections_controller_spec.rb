@@ -52,12 +52,12 @@ RSpec.describe CollectionsController, :type => :controller do
     end
   end
 
-  describe "GET new" do
-    it "assigns a new collection as @collection" do
-      get :new, {}, valid_session
-      expect(assigns(:collection)).to be_a_new(Collection)
-    end
-  end
+  # describe "GET new" do
+  #   it "assigns a new collection as @collection" do
+  #     get :new, {}, valid_session
+  #     expect(assigns(:collection)).to be_a_new(Collection)
+  #   end
+  # end
 
   describe "GET edit" do
     it "assigns the requested collection as @collection" do
