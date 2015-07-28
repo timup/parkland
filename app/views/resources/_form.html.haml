@@ -5,6 +5,13 @@
     = f.input :name
     = f.input :href, label: "Link"
     = f.input :description
+    .col-sm-3
+    .col-sm-2
+      = f.radio_button :type, 'Person'
+      <label for="resource_type_person">Person</label>
+    .col-sm-7
+      = f.radio_button :type, 'Company'
+      <label for="resource_type_company">Company</label>
 
   .form-actions
     = f.button :submit
