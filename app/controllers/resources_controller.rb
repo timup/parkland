@@ -17,7 +17,7 @@ class ResourcesController < ApplicationController
   end
 
   # POST /resources/1/collect.js
-  def collect
+  def collects
     # raise params.inspect
     new_ids = params[:resource][:collection_ids]
     old_ids = current_user.collections.includes(:resources).where(resources: {id: @resource.id}).map(&:id) 
@@ -77,6 +77,6 @@ class ResourcesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def resource_params
-      params.require(:resource).permit(:id, :description, :href, :name, :type)
+      params.require(:resource).permit(:id, :description, :href, :name, :type, :organization, :org_href, :org_description)
     end
 end

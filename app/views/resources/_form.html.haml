@@ -1,17 +1,23 @@
 = simple_form_for(resource, html: {class: 'form-horizontal'}, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean}) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :name
-    = f.input :href, label: "Link"
-    = f.input :description
-    .col-sm-3
-    .col-sm-2
-      = f.radio_button :type, 'Person'
-      <label for="resource_type_person">Person</label>
-    .col-sm-7
-      = f.radio_button :type, 'Company'
-      <label for="resource_type_company">Company</label>
+  .col-md-2
+  .col-md-8
+    .form-inputs.text-center#form-type-radio
+      = f.radio_button :type, "Person", class: "radio"
+      <label for="resource_type_person" class="radio-label btn btn-primary">Person</label>
+      = f.radio_button :type, "Company", class: "radio"
+      <label for="resource_type_company" class="radio-label btn btn-primary">Company</label>
+    .form-inputs
+      = f.input :name, placeholder: "Enter the resource's name"
+      = f.input :href, label: "Link", placeholder: "http://www..."
+      = f.input :description, placeholder: "Describe the resource briefly"
+        
+    .form-inputs.org-info
+      =f.input :organization, placeholder: "Optional"
+      =f.input :org_href, label: "Organization Link", placeholder: "Optional   http://www..."
+      =f.input :description, placeholder: "Describe the organization briefly"
 
-  .form-actions
-    = f.button :submit
+    .form-actions
+      = f.button :submit
+
