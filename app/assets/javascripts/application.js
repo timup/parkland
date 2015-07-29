@@ -6,3 +6,4 @@
 //= require collections
 //= require tables
 //= require resources
+//= require modal

@@ -13,5 +13,12 @@
     .container
       = render "flashes"
       = yield
+      
+      #myModal.modal.fade{"tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true", "style" => "display: none;"}
+        .modal-dialog
+          .modal-content#new-modal
+            .modal-body
+              = render 'resources/form', resource: @new_resource
+
     = render "footer"
     = render "javascript"

@@ -33,3 +33,7 @@
 .alert-alert {
   @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text)
 }
+
+#new-btn {
+  color: #5E5E5E;
+}

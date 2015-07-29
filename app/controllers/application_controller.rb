@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
 
   check_authorization
+
+  before_action :new_resource
+
+  private
+
+  def new_resource
+    @new_resource = Resource.new
+  end
 end
