@@ -17,7 +17,7 @@ class ResourcesController < ApplicationController
   end
 
   # POST /resources/1/collect.js
-  def collects
+  def collect
     # raise params.inspect
     new_ids = params[:resource][:collection_ids]
     old_ids = current_user.collections.includes(:resources).where(resources: {id: @resource.id}).map(&:id) 
