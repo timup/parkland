@@ -1,10 +1,6 @@
 .page-header
   %h1
     All Resources
-    .pull-right
-      - if can? :create, Resource
-        = link_to new_resource_path, class: "btn btn-lg btn-success" do
-          %i.fa.fa-plus
-          Add
+   
 
 = render 'table', resources: @resources

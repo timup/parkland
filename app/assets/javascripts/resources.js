@@ -1,15 +1,20 @@
-$(".resource-collection-ids").change(function() {
-  $(this).parent("form").submit();
-});
+$(document).ready(function(){
 
-// Hide organization form
-$(".org-info").hide();
+  $(".resource-collection-ids").change(function() {
+    $(this).parent("form").submit();
+  });
 
-// Add organization button
-$("#organization-btn").on("click", function(){
-  $(".org-info").toggle();
-  // Clear forms
-  $(".org-info > input[type=text], textarea").val("");
-  $(".org-info input").val("");
-  $(".org-info textarea").text("");
+  // Hide organization form
+  $(".org-info").hide();
+
+  // Add organization button
+  $("#organization-btn").on("click", function(){
+    $(".org-info").toggle();
+    // Clear forms
+    $(".org-info input").val("");
+    $(".org-info textarea").val("");
+    // Rotate arrow 180deg
+    $(".org-arrow").toggleClass("down");
+  });
+
 });

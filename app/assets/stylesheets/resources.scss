@@ -15,14 +15,19 @@ input[type="radio"]:checked + label {
   border-color: #65ADEA;
 }
 
-#form-type-radio {
-  margin-bottom: 15px;
-}
-
 .org-info {
   display: none;
 }
 
-#organization-btn {
+.org-btn {
   text-align: center;
+  margin: 10px 0;
+}
+
+.org-arrow.down {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  padding-bottom: 2px;
 }

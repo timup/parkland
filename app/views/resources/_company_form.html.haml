@@ -5,10 +5,10 @@
     .col-md-2
     .col-md-8
       .form-inputs
-        = f.input :name, placeholder: "Enter the resource's name"
+        = f.input :name, placeholder: "Enter the company's name"
         = f.input :href, label: "Link", placeholder: "http://www..."
-        = f.input :description, placeholder: "Describe the resource briefly"
-        = f.input :type, value: "Company"
+        = f.input :description, placeholder: "Describe the company briefly"
+        = f.hidden_field :type, value: "Company"
 
       .form-actions
         = f.button :submit
