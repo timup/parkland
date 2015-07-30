@@ -26,27 +26,35 @@
 }
 
 .collection-btn:active,
-.company-btn:active:focus,
+.collection-btn:active:focus,
 .collection-btn:hover,
-.collection-btn:link
+.collection-btn:link,
 .collection-btn:focus,
 .collection-btn {
   background-color: #60260B;
   color:#fff;
 }
 
-.modal-content {
-  border: 5px solid #fff;
-}
-
 .person-body {
-  border: 5px solid #3337A0;
+  border: 5px solid rgba(51, 55, 160, 0.5);
 }
 
 .company-body {
-  border: 5px solid #419320;
+  border: 5px solid rgba(65, 147, 32, 0.5);
 }
 
 .collection-body {
-  border: 5px solid #60260B;
+  border: 5px solid rgba(96, 38, 11, 0.5);
+}
+
+.person-form-input {
+  background-color: rgba(10, 10, 250, 0.1);
+}
+
+.company-form-input {
+  background-color: rgba(65, 147, 32, 0.1);
+}
+
+.collection-form-input {
+  background-color: rgba(96, 38, 11, 0.1);
 }
