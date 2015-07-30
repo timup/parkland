@@ -17,8 +17,20 @@
       #myModal.modal.fade{"tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true", "style" => "display: none;"}
         .modal-dialog
           .modal-content#new-modal
+            .modal-head
+              %button.btn.btn-default#person-btn
+                Person
+              %button.btn.btn-default#company-btn
+                Company
+              %button.btn.btn-default#collection-btn
+                Collection
             .modal-body
-              = render 'resources/form', resource: @new_resource
+              #person-form
+                = render 'resources/person_form', resource: @new_resource
+              #company-form
+                = render 'resources/company_form', resource: @new_resource
+              #collection-form
+                = render 'collections/form', collection: @new_collection
 
     = render "footer"
     = render "javascript"

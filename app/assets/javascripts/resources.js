@@ -2,12 +2,14 @@ $(".resource-collection-ids").change(function() {
   $(this).parent("form").submit();
 });
 
-// $(".org-info").hide();
+// Hide organization form
+$(".org-info").hide();
 
-$("#resource_type_person").on("click", function(){
-  $(".org-info").show();
-});
-
-$("#resource_type_company").on("click", function(){
-  $(".org-info").hide();
+// Add organization button
+$("#organization-btn").on("click", function(){
+  $(".org-info").toggle();
+  // Clear forms
+  $(".org-info > input[type=text], textarea").val("");
+  $(".org-info input").val("");
+  $(".org-info textarea").text("");
 });

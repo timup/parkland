@@ -7,11 +7,12 @@ class ApplicationController < ActionController::Base
 
   check_authorization
 
-  before_action :new_resource
+  before_action :get_vars
 
   private
 
-  def new_resource
+  def get_vars
     @new_resource = Resource.new
+    @new_collection = Collection.new
   end
 end
