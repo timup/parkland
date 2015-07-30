@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_action :set_resource, only: [:collect, :show, :edit, :update, :destroy]
+  before_action :set_resource, only: [:collect_one, :show, :edit, :update, :destroy]
   authorize_resource
 
   # GET /resources
@@ -16,8 +16,8 @@ class ResourcesController < ApplicationController
     @resource = Resource.new
   end
 
-  # POST /resources/1/collect.js
-  def collects
+  # POST /resources/1/collect_one.js
+  def collect_one
     # raise params.inspect
     new_ids = params[:resource][:collection_ids]
     old_ids = current_user.collections.includes(:resources).where(resources: {id: @resource.id}).map(&:id) 

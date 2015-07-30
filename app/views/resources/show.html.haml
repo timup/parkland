@@ -2,8 +2,9 @@
   %h1
     = @resource
     .pull-right
-      - if can? :collect, @resource and current_user.collections.count > 0
-        = form_for @resource, url: collects_resource_path(@resource), remote: true, html: {method: :post} do |f|
+      - if can? :collect_one, @resource and current_user.collections.count > 0
+        - @resource = @resource.becomes(Resource)
+        = form_for @resource, url: collect_one_resource_path(@resource), remote: true, html: {method: :post} do |f|
           = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
 
 = render 'card', resource: @resource

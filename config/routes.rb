@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :resources do
     member do
-      post :collects
+      post :collect_one
     end
   end
   resources :users, only: [:index, :show]
