@@ -16,15 +16,15 @@
       
       #myModal.modal.fade{"tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true", "style" => "display: none;"}
         .modal-dialog
-          .modal-content#new-modal
+          .modal-content.person-body#new-modal
             .modal-head.text-center
-              %button.btn.btn-default.form-select-btn#person-btn
+              %button.btn.btn-default.form-select-btn.person-btn#person-btn
                 Person
-              %button.btn.btn-default.form-select-btn#company-btn
+              %button.btn.btn-default.form-select-btn.company-btn#company-btn
                 Company
-              %button.btn.btn-default.form-select-btn#collection-btn
+              %button.btn.btn-default.form-select-btn.collection-btn#collection-btn
                 Collection
-            .modal-body
+            .modal-body#modal-body
               #person-form
                 = render 'resources/person_form', resource: @new_resource
               #company-form

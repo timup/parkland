@@ -1,3 +1,52 @@
 .form-select-btn {
   margin: 10px;
+  color: #eee;
+  border-color: #eee;
+  border-bottom: none;
+}
+
+.person-btn:active,
+.person-btn:active:focus,
+.person-btn:hover,
+.person-btn:link,
+.person-btn:focus,
+.person-btn {
+  background-color: #3337A0;
+  color: #fff;
+}
+
+.company-btn:active,
+.company-btn:active:focus,
+.company-btn:hover,
+.company-btn:link,
+.company-btn:focus,
+.company-btn {
+  background-color: #419320;
+  color: #fff;
+}
+
+.collection-btn:active,
+.company-btn:active:focus,
+.collection-btn:hover,
+.collection-btn:link
+.collection-btn:focus,
+.collection-btn {
+  background-color: #60260B;
+  color:#fff;
+}
+
+.modal-content {
+  border: 5px solid #fff;
+}
+
+.person-body {
+  border: 5px solid #3337A0;
+}
+
+.company-body {
+  border: 5px solid #419320;
+}
+
+.collection-body {
+  border: 5px solid #60260B;
 }

@@ -17,6 +17,10 @@
           = link_to "Users", users_path
       .navbar-right
         %ul.nav.navbar-nav
+          - if can? :create, @new_resource
+            %li
+              %a#new-btn{:href => "#myModal", "data-toggle" => "modal"}
+                %i.fa.fa-plus
           - if user_signed_in?
             = link_to current_user, user_path(current_user), class: 'navbar-text'
             %li
@@ -28,7 +32,4 @@
               = link_to new_user_session_path, class: 'navbar-link' do
                 %i.fa.fa-sign-in
                 Sign in
-          - if can? :create, @new_resource
-            %li
-              %a#new-btn{:href => "#myModal", "data-toggle" => "modal"}
-                %i.fa.fa-plus
+          

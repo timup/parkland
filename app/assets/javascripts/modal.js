@@ -13,6 +13,10 @@ $(document).ready(function(){
     event.preventDefault();
     $("#person-form").show();
     $("#company-form, #collection-form").hide();
+    // Change modal body class to person-body
+    $("#new-modal").addClass("person-body");
+    $("#new-modal").removeClass("company-body");
+    $("#new-modal").removeClass("collection-body");
   });
 
   // Company form show, others hide
@@ -20,17 +24,22 @@ $(document).ready(function(){
     event.preventDefault();
     $("#company-form").show();
     $("#person-form, #collection-form").hide();
+    // Change modal body class to company-body
+    $("#new-modal").addClass("company-body");
+    $("#new-modal").removeClass("person-body");
+    $("#new-modal").removeClass("collection-body");
   });
   // Collection form show, others hide
   $("#collection-btn").on("click", function(event){
     event.preventDefault();
     $("#collection-form").show();
     $("#person-form, #company-form").hide();
+    // Change modal body class to collection-body
+    $("#new-modal").addClass("collection-body");
+    $("#new-modal").removeClass("company-body");
+    $("#new-modal").removeClass("person-body");
   });
 
-  // Top buttons clear forms
-  // $(".form-select-btn").on("click", function(){
-    // $(".modal-body input").val("");
-    // $(".modal-body textarea").val("");
-  // });
+  // Change background color to match buttons
+
 });
