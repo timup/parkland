@@ -6,6 +6,9 @@
       %p.list-group-item-text Name
       %h4.list-group-item-heading= resource.name
     .list-group-item
+      %p.list-group-item-text Type
+      %h4.list-group-item-heading= resource.type
+    .list-group-item
       %p.list-group-item-text Owner
       %h4.list-group-item-heading= resource.owner
     .list-group-item
@@ -14,6 +17,18 @@
     .list-group-item
       %p.list-group-item-text Description
       %h4.list-group-item-heading= resource.description
+    - if resource.organization.present?
+      .list-group-item
+        %p.list-group-item-text Organization
+        %h4.list-group-item-heading resource.organization
+    - if resource.org_href.present?
+      .list-group-item
+        %p.list-group-item-text Organization Link
+        %h4.list-group-item-heading resource.org_href
+    - if resource.org_description.present?
+      .list-group-item
+        %p.list-group-item-text Organization Description
+        %h4.list-group-item-heading resource.org_description
     .list-group-item
       %p.list-group-item-text Created
       %h4.list-group-item-heading= resource.created_at

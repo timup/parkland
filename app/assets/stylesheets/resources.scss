@@ -1,0 +1,33 @@
+.fa-user {
+  margin-left: 2px;
+}
+
+/////////////////////////////
+///       FORM           ///
+///////////////////////////
+
+.radio {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #65ADEA;
+  border-color: #65ADEA;
+}
+
+.org-info {
+  display: none;
+}
+
+.org-btn {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.org-arrow.down {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  padding-bottom: 2px;
+}

@@ -1,0 +1,64 @@
+.modal-content {
+  padding: 30px 0;
+}
+
+.form-select-btn {
+  margin: 10px;
+  color: #eee;
+  border-color: #eee;
+  border-bottom: none;
+}
+
+.person-btn:active,
+.person-btn:active:focus,
+.person-btn:hover,
+.person-btn:link,
+.person-btn:focus,
+.person-btn {
+  background-color: #3337A0;
+  color: #fff;
+}
+
+.company-btn:active,
+.company-btn:active:focus,
+.company-btn:hover,
+.company-btn:link,
+.company-btn:focus,
+.company-btn {
+  background-color: #419320;
+  color: #fff;
+}
+
+.collection-btn:active,
+.collection-btn:active:focus,
+.collection-btn:hover,
+.collection-btn:link,
+.collection-btn:focus,
+.collection-btn {
+  background-color: #60260B;
+  color:#fff;
+}
+
+.person-body {
+  border: 5px solid rgba(51, 55, 160, 0.5);
+}
+
+.company-body {
+  border: 5px solid rgba(65, 147, 32, 0.5);
+}
+
+.collection-body {
+  border: 5px solid rgba(96, 38, 11, 0.5);
+}
+
+.person-form-input {
+  background-color: rgba(10, 10, 250, 0.1);
+}
+
+.company-form-input {
+  background-color: rgba(65, 147, 32, 0.1);
+}
+
+.collection-form-input {
+  background-color: rgba(96, 38, 11, 0.1);
+}

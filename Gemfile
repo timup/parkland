@@ -18,6 +18,7 @@ gem "haml-rails", "~> 0.9"
 gem "high_voltage"
 gem "i18n-tasks"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
@@ -34,6 +35,7 @@ group :development do
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"
+  gem "rails-erd"
 end
 
 group :development, :test do

@@ -6,4 +6,13 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
 
   check_authorization
+
+  before_action :get_vars
+
+  private
+
+  def get_vars
+    @new_resource = Resource.new
+    @new_collection = Collection.new
+  end
 end

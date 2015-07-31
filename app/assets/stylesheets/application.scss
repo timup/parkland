@@ -12,6 +12,8 @@
 @import "collections";
 @import "tables";
 @import "users";
+@import "resources";
+@import "modal";
 
 .page-header {
   margin: 0;
@@ -31,4 +33,15 @@
 
 .alert-alert {
   @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text)
+}
+
+a:focus,
+.btn:focus {
+  outline: 0;
+}
+
+#new-btn {
+  color: #419320;
+  font-size: 3em;
+  padding: 5px 0 0;
 }
