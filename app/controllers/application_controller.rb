@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   check_authorization
 
-  before_action :get_vars
+  before_action :get_vars, if: :user_logged_in
 
   private
 
@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     @new_resource = Resource.new
     @new_collection = Collection.new
   end
+
+  def user_logged_in
+    user_signed_in?
+  end
+
 end
