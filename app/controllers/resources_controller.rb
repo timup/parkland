@@ -30,6 +30,7 @@ class ResourcesController < ApplicationController
             coll.resources.delete(@resource)
           else
             coll.resources.push(@resource)
+            coll.resource_collections.where(resource_id: @resource.id).each { |x| x.update(description: @resource.description) }
           end
         end
       rescue ActiveRecord::RecordNotFound => e
