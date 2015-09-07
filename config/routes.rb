@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post :sort
     end
   end
+  resources :resource_collections, only: [:update]
   resources :resources do
     member do
       post :collect_one

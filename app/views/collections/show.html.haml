@@ -19,3 +19,10 @@
                 = link_to resource, resource.href
               - else
                 = "#{resource}"
+            - if current_user == @collection.owner
+              %td
+                = form_for resource_collection, remote: true, html: {method: :put} do |f|
+                  = f.text_field :description, placeholder: resource_collection.description
+            - else
+              %td
+                = resource_collection.description
