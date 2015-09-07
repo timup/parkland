@@ -1,14 +1,10 @@
-$(document).ready(function(){
-
-  $("#form-btn").on("click", function(){
-    $("#new-resource").show();
-  });
+$(function(){
 
   // Hide Company and Collection Forms
   $("#company-form").hide();
   $("#collection-form").hide();
 
-  $("#person-btn").on("click", function(event){
+  $("#person-btn-modal").on("click", function(event){
     event.preventDefault();
     // Make button large
     $(".form-select-btn.btn-lg").removeClass("btn-lg");
@@ -16,17 +12,13 @@ $(document).ready(function(){
     // Person form show, others hide
     $("#person-form").show();
     $("#company-form, #collection-form").hide();
-    // Change modal body class to person-body
-    $("#new-modal").addClass("person-body");
-    $("#new-modal").removeClass("company-body");
-    $("#new-modal").removeClass("collection-body");
+    // Change modal body class to person-modal-body
+    $("#new-resource-modal").addClass("person-modal-body").removeClass("company-modal-body").removeClass("collection-modal-body");
     // Change input class to person-form-input
-    $(".form-input").addClass("person-form-input");
-    $(".form-input").removeClass("company-form-input");
-    $(".form-input").removeClass("collection-form-input");
+    $(".form-input").addClass("person-form-input").removeClass("company-form-input").removeClass("collection-form-input");
   });
 
-  $("#company-btn").on("click", function(event){
+  $("#company-btn-modal").on("click", function(event){
     event.preventDefault();
     // Make button large
     $(".form-select-btn.btn-lg").removeClass("btn-lg");
@@ -34,17 +26,13 @@ $(document).ready(function(){
     // Company form show, others hide
     $("#company-form").show();
     $("#person-form, #collection-form").hide();
-    // Change modal body class to company-body
-    $("#new-modal").addClass("company-body");
-    $("#new-modal").removeClass("person-body");
-    $("#new-modal").removeClass("collection-body");
+    // Change modal body class to company-modal-body
+    $("#new-resource-modal").addClass("company-modal-body").removeClass("person-modal-body").removeClass("collection-modal-body");
     // Change input class to person-form-input
-    $(".form-input").addClass("company-form-input");
-    $(".form-input").removeClass("person-form-input");
-    $(".form-input").removeClass("collection-form-input");
+    $(".form-input").addClass("company-form-input").removeClass("person-form-input").removeClass("collection-form-input");
   });
   
-  $("#collection-btn").on("click", function(event){
+  $("#collection-btn-modal").on("click", function(event){
     event.preventDefault();
     // Make button large
     $(".form-select-btn.btn-lg").removeClass("btn-lg");
@@ -52,16 +40,10 @@ $(document).ready(function(){
     // Collection form show, others hide
     $("#collection-form").show();
     $("#person-form, #company-form").hide();
-    // Change modal body class to collection-body
-    $("#new-modal").addClass("collection-body");
-    $("#new-modal").removeClass("company-body");
-    $("#new-modal").removeClass("person-body");
+    // Change modal body class to collection-modal-body
+    $("#new-resource-modal").addClass("collection-modal-body").removeClass("company-modal-body").removeClass("person-modal-body");
     // Change input class to person-form-input
-    $(".form-input").addClass("collection-form-input");
-    $(".form-input").removeClass("company-form-input");
-    $(".form-input").removeClass("person-form-input");
+    $(".form-input").addClass("collection-form-input").removeClass("company-form-input").removeClass("person-form-input");
   });
-
-  // Change background color to match buttons
 
 });

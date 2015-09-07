@@ -6,15 +6,6 @@
 ///       FORM           ///
 ///////////////////////////
 
-.radio {
-  display: none;
-}
-
-input[type="radio"]:checked + label {
-  background-color: #65ADEA;
-  border-color: #65ADEA;
-}
-
 .org-info {
   display: none;
 }

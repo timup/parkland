@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
 
   $(".resource-collection-ids").change(function() {
     $(this).parent("form").submit();
