@@ -21,8 +21,8 @@
                 = "#{resource}"
             - if current_user == @collection.owner
               %td
-                = form_for resource_collection, url: update_resource_collection_description_collection_path(resource_collection), remote: true, html: {method: :post} do |f|
+                = form_for resource_collection, remote: true, html: {method: :put} do |f|
                   = f.text_field :description, placeholder: resource_collection.description
             - else
               %td
-                = "#{resource_collection.description}"
+                = resource_collection.description

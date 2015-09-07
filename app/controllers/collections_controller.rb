@@ -39,11 +39,6 @@ class CollectionsController < ApplicationController
     end
     render nothing: true
   end
-  
-  # POST /collections/1/update_description.js
-  def update_resource_collection_description
-    ResourceCollection.find(params[:id]).update(description: params[:resource_collection][:description])
-  end
 
   # PATCH/PUT /collections/1
   def update
