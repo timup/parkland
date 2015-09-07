@@ -15,6 +15,7 @@ class Ability
       can [:sort], Collection, user_id: user.id
       can [:create], [Collection, Resource]
       can [:collect_one], Resource
+      can [:update_resource_collection_description], Collection
       can [:update], User, id: user.id
     end
   end

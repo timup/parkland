@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :collections do
     member do
       post :sort
+      post :update_resource_collection_description
     end
   end
   resources :resources do
