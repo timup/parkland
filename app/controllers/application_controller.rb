@@ -9,10 +9,20 @@ class ApplicationController < ActionController::Base
 
   before_action :setup_new_form, if: :user_signed_in?
 
+  layout :layout_by_resource
+
   private
     def setup_new_form
       @new_resource = Resource.new
       @new_collection = Collection.new
     end
+
+    def layout_by_resource
+      if devise_controller? && resource_name == :admin
+        "admin"
+      else
+        "application"
+    end
+  end
 
 end

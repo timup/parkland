@@ -15,4 +15,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index, :show]
+
+  namespace :admin do
+    root to: 'dashboard#index'
+  end
+
 end
