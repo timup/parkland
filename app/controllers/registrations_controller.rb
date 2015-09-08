@@ -1,7 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_params, only: [:create, :update]
-  
-  skip_authorization_check
 
   private
   def configure_permitted_params
