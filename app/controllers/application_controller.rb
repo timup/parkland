@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :info, :warning, :danger
 
-  check_authorization
+  check_authorization unless: :devise_controller?
 
   before_action :setup_new_form, if: :user_signed_in?
 
