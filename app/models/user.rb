@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   def to_s
     name
   end
+
+  def image
+    "gradient.png"
+  end
 end

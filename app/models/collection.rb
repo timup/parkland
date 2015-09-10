@@ -7,4 +7,12 @@ class Collection < ActiveRecord::Base
   def to_s
     name
   end
+
+  def title
+    "A collection about something awesome"
+  end
+
+  def image
+    'forest.jpg'
+  end
 end

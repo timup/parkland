@@ -1,5 +1,11 @@
-.row
+.collection-tiles
   - collections.each do |collection|
-    .col-sm-4
-      = link_to collection_path(collection), class: 'collection-panel' do
-        .collection-name= collection.name
+    = link_to collection_path(collection), class: 'collection-tile' do
+      .collection-tile--header{style: "background-image:url(#{image_path collection.image})"}
+        .collection-tile--curator
+          %span.user-image
+            = image_tag collection.owner.image
+          %span= collection.owner
+      .collection-tile--name
+        %h3= collection.name
+      .collection-tile--title= collection.title

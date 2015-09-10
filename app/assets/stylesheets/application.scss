@@ -16,8 +16,9 @@
 @import "modal";
 
 .page-header {
-  margin: 0;
+  margin: 50px 0;
   text-align: center;
+  border-bottom: none;
   h1 {
     margin-top: 0;
   }
@@ -38,6 +39,10 @@
 a:focus,
 .btn:focus {
   outline: none;
+}
+
+a:hover, a:focus, a:active, a:visited {
+  text-decoration: none;
 }
 
 #new-btn {
