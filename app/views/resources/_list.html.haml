@@ -1,0 +1,22 @@
+%ul.resource-items
+  - resources.each do |resource|
+    - resource = resource.becomes(Resource)
+    %li.resource-item{data: {href: "#{resource_path(resource)}"}}
+      .resource-item--rank= resource.collections.count
+      .resource-item--thumbnail{style: "background-image:url(#{image_path(resource.image)});"}
+      .resource-item--text
+        = link_to resource, resource, class: "resource-item--text--name"
+        %span.resource-item--text--description= resource.description
+        .resource-item--text--data
+          %span.resource-item--text--data--type= resource.type
+          %span.resource-item--text--data--tags
+      .resource-item--actions
+        .resource-item--actions--collect
+          - if can? :collect_one, resource and current_user.collections.count > 0
+            = form_for resource, url: collect_one_resource_path(resource), remote: true, html: {method: :post} do |f|
+              = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
+        .resource-item--actions--owner
+          = link_to resource.owner, class: "user-image" do
+            %span.user-image
+              .user-image--badge
+              = image_tag resource.owner.image

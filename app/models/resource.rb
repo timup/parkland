@@ -8,4 +8,8 @@ class Resource < ActiveRecord::Base
     name
   end
 
+  def image
+    "forest.jpg"
+  end
+
 end
