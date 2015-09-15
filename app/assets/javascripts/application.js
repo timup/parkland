@@ -7,3 +7,4 @@
 //= require tables
 //= require resources
 //= require modal
+//= require navbar
