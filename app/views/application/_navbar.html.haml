@@ -20,8 +20,8 @@
         %ul.nav.navbar-nav
           - if can? :create, @new_resource
             %li
-              %a#new-btn{:href => "#add-resource-modal", "data-toggle" => "modal"}
-                %i.fa.fa-plus
+              %a.btn-create-resource{href: "#", "data-toggle" => "modal"}
+                %i.fa.fa-2x.fa-plus
           - if user_signed_in?
             = link_to current_user, user_path(current_user), class: 'navbar-text'
             %li

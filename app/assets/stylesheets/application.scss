@@ -25,6 +25,13 @@
       height: 40px;
     }
   }
+  .btn-create-resource {
+    padding-top: 22px;
+    padding-bottom: 19px;
+    &:hover {
+      color: #419320 !important;
+    }
+  }
 }
 
 .page-header {
@@ -55,10 +62,4 @@ a:focus,
 
 a:hover, a:focus, a:active, a:visited {
   text-decoration: none;
-}
-
-#new-btn {
-  color: #419320;
-  font-size: 3em;
-  padding: 5px 0 0;
 }
