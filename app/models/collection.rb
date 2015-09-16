@@ -1,4 +1,6 @@
 class Collection < ActiveRecord::Base
+  include ActionView::Helpers
+
   has_many :resource_collections, dependent: :destroy
   has_many :resources, through: :resource_collections
 
@@ -8,11 +10,11 @@ class Collection < ActiveRecord::Base
     name
   end
 
-  def title
-    "A collection about something awesome"
-  end
-
   def image
     'forest.jpg'
+  end
+
+  def small_description
+    truncate(description, length: 56)
   end
 end
