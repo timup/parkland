@@ -3,20 +3,20 @@
 @import "bootstrap-overrides";
 
 // Libraries and Frameworks
-@import "normalize-rails";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
 @import "bootstrap-select.min";
+@import "font-awesome";
 @import "jquery-ui.min";
+@import "normalize-rails";
 
 // Custom Elements
 @import "collections";
-@import "tables";
-@import "users";
-@import "resources";
 @import "modal";
 @import "popover";
+@import "resources";
+@import "tables";
+@import "users";
 
 .navbar {
   .navbar-brand {
