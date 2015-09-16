@@ -5,6 +5,9 @@
   .resource-item {
     &:hover {
       background: #f7f7fa;
+      .resource-item--actions--collect {
+        opacity: 1;
+      }
     }
     transition: background, 0.1s;
     background: white;
@@ -91,6 +94,7 @@
     }
     .resource-item--actions--collect {
       display: inline-block;
+      opacity: 0;
     }
   }
 }

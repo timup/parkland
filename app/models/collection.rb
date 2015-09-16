@@ -7,6 +7,8 @@ class Collection < ActiveRecord::Base
 
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
 
+  scope :featured, ->(limit=5) { where.not(featured_at: nil).order(featured_at: :desc).limit(limit) }
+
   def to_s
     name
   end

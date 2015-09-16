@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
 
   # GET /collections
   def index
-    @collections = Collection.all
+    @collections = Collection.featured(20)
   end
 
   # GET /collections/1
