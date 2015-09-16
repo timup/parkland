@@ -6,7 +6,8 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to "Parkland", root_path, class: "navbar-brand"
+      = link_to root_path, class: "navbar-brand" do
+        = image_tag "logo.png"
     #parkland-navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li{class: ('active' if controller_name == "resources")}

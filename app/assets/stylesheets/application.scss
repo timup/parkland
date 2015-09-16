@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import "bootstrap-overrides";
+
 // Libraries and Frameworks
 @import "normalize-rails";
 @import "bootstrap-sprockets";
@@ -15,6 +17,15 @@
 @import "resources";
 @import "modal";
 @import "popover";
+
+.navbar {
+  .navbar-brand {
+    padding: 15px;
+    img {
+      height: 40px;
+    }
+  }
+}
 
 .page-header {
   margin: 50px 0;
