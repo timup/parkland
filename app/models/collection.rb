@@ -1,5 +1,6 @@
 class Collection < ActiveRecord::Base
-  include ActionView::Helpers
+  include Slug
+  include ActionView::Helpers #for #small_description
 
   has_many :resource_collections, dependent: :destroy
   has_many :resources, through: :resource_collections

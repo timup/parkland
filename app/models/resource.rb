@@ -1,4 +1,6 @@
 class Resource < ActiveRecord::Base
+  include Slug
+
   has_many :resource_collections, dependent: :destroy
   has_many :collections, through: :resource_collections
 

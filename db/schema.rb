@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916154223) do
+ActiveRecord::Schema.define(version: 20150916160951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 20150916154223) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.text     "description"
+    t.string   "slug"
   end
 
+  add_index "collections", ["slug"], name: "index_collections_on_slug", unique: true, using: :btree
   add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -89,8 +91,10 @@ ActiveRecord::Schema.define(version: 20150916154223) do
     t.string   "org_href"
     t.text     "org_description"
     t.integer  "collections_count", default: 0, null: false
+    t.string   "slug"
   end
 
+  add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true, using: :btree
   add_index "resources", ["user_id"], name: "index_resources_on_user_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
