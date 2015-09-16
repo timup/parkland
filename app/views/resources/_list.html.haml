@@ -2,7 +2,7 @@
   - resources.each do |resource|
     - resource = resource.becomes(Resource)
     %li.resource-item{data: {href: "#{resource_path(resource)}"}}
-      .resource-item--rank= resource.collections.count
+      .resource-item--rank= resource.collections_count
       .resource-item--thumbnail{style: "background-image:url(#{image_path(resource.image)});"}
       .resource-item--text
         = link_to resource, resource, class: "resource-item--text--name"

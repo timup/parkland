@@ -4,7 +4,8 @@ class ResourcesController < ApplicationController
 
   # GET /resources
   def index
-    @resources = Resource.all
+    #top resources, by collections_count
+    @resources = Resource.top(10)
   end
 
   # GET /resources/1
