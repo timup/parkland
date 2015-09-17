@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916233428) do
+ActiveRecord::Schema.define(version: 20150917161013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150916233428) do
     t.text     "description"
     t.string   "slug"
     t.datetime "featured_at"
+    t.string   "image"
   end
 
   add_index "collections", ["slug"], name: "index_collections_on_slug", unique: true, using: :btree
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150916233428) do
     t.text     "org_description"
     t.integer  "collections_count", default: 0, null: false
     t.string   "slug"
+    t.string   "image"
   end
 
   add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true, using: :btree
@@ -121,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150916233428) do
     t.string   "name"
     t.string   "slug"
     t.datetime "featured_at"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

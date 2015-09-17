@@ -58,6 +58,7 @@ class ResourcesController < ApplicationController
 
   # PATCH/PUT /resources/1
   def update
+    @resource = @resource.becomes(Resource)
     if @resource.update(resource_params)
       redirect_to @resource, notice: 'Resource was successfully updated.'
     else
@@ -79,6 +80,6 @@ class ResourcesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def resource_params
-      params.require(:resource).permit(:id, :description, :href, :name, :type, :organization, :org_href, :org_description)
+      params.require(:resource).permit(:id, :description, :href, :name, :image, :type, :organization, :org_href, :org_description)
     end
 end

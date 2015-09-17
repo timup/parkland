@@ -9,12 +9,10 @@ class Collection < ActiveRecord::Base
 
   scope :featured, ->(limit=5) { where.not(featured_at: nil).order(featured_at: :desc).limit(limit) }
 
+  mount_uploader :image, ImageUploader
+
   def to_s
     name
-  end
-
-  def image
-    'forest.jpg'
   end
 
   def small_description

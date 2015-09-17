@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   scope :featured, ->(limit=5) { where.not(featured_at: nil).order(featured_at: :desc).limit(limit) }
 
+  mount_uploader :image, ImageUploader
+
   has_many :collections
   has_many :resources
 
@@ -15,7 +17,4 @@ class User < ActiveRecord::Base
     name
   end
 
-  def image
-    "gradient.png"
-  end
 end

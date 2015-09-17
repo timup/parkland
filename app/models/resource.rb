@@ -8,12 +8,10 @@ class Resource < ActiveRecord::Base
 
   scope :top, ->(limit=5) { order(collections_count: :desc).limit(limit) }
 
+  mount_uploader :image, ImageUploader
+
   def to_s
     name
   end
-
-  def image
-    "forest.jpg"
-  end
-
+  
 end
