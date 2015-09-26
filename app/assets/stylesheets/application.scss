@@ -18,18 +18,20 @@
 @import "tables";
 @import "users";
 
-.navbar {
-  .navbar-brand {
-    padding: 15px;
-    img {
-      height: 40px;
+.navbar-default {
+  .navbar {
+    .navbar-brand {
+      padding: 15px;
+      img {
+        height: 40px;
+      }
     }
-  }
-  .btn-create-resource {
-    padding-top: 22px;
-    padding-bottom: 19px;
-    &:hover {
-      color: #419320 !important;
+    .btn-create-resource {
+      padding-top: 22px;
+      padding-bottom: 19px;
+      &:hover {
+        color: #419320 !important;
+      }
     }
   }
 }
