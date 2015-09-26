@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   root to: "pages#show", id: 'home'
 
   devise_for :users, controllers: {registrations: "registrations", sessions: "sessions"}
@@ -14,4 +15,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index, :show]
+
+  namespace :admin do
+    root to: 'dashboard#index'
+  end
+
 end
