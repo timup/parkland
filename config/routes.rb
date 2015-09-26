@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "pages#show", id: 'home'
+  root to: "pages#show", id: "home"
 
   devise_for :users, controllers: {registrations: "registrations", sessions: "sessions"}
   resources :collections do
@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   # Admins
   devise_for :admins, skip: :registrations
-  namespace :admins do
-    root to: 'dashboard#index'
+  namespace :admins, as: "admin" do
+    root to: "dashboard#index"
   end
 
 end

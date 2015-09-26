@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(User)
+      root_path
+    elsif resource.is_a?(Admin) 
+      stored_location_for(:admin) || admin_root_path
+    else
+      root_path
+    end
+  end
+
   private
     def setup_new_form
       @new_resource = Resource.new
@@ -19,7 +29,7 @@ class ApplicationController < ActionController::Base
 
     def layout_by_resource
       if devise_controller? && resource_name == :admin
-        "admin"
+        "admins"
       else
         "application"
     end

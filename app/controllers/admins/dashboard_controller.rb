@@ -1,4 +1,4 @@
-class Admin::DashboardController < AdminController
+class Admins::DashboardController < AdminsController
   
   def index
     authorize! :view, :dashboard
