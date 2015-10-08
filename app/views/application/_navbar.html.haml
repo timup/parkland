@@ -27,12 +27,12 @@
             %li
               = link_to destroy_user_session_path, method: :delete, class: 'navbar-link' do
                 %i.fa.fa-sign-out
-                Sign out
+                Logout
           - else
             %li
               = link_to new_user_session_path, class: 'navbar-link' do
                 %i.fa.fa-sign-in
-                Sign in
+                Login
         %button.btn.btn-default.navbar-btn#navbar-chat{data: {toggle: "popover"}}
           %i.fa.fa-slack
           Join Chat
