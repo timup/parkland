@@ -1,15 +1,17 @@
-.col-sm-offset-3.col-sm-6
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'panel panel-default'}) do |f|
-    = f.error_notification
-    .panel-heading
-      %h2.panel-title User Login
-    .panel-body
-      .form-inputs
-        = f.input :email, required: false, autofocus: true
-        = f.input :password, required: false
-    .panel-footer.clearfix
-      .form-actions
-        .pull-left
-          = render "devise/shared/links"
-        .pull-right
-          = f.button :submit, "Log in", class: 'btn-success'
+.page-header
+.container
+  .col-sm-offset-3.col-sm-6
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'panel panel-default'}) do |f|
+      = f.error_notification
+      .panel-heading
+        %h2.panel-title User Login
+      .panel-body
+        .form-inputs
+          = f.input :email, required: false, autofocus: true
+          = f.input :password, required: false
+      .panel-footer.clearfix
+        .form-actions
+          .pull-left
+            = render "devise/shared/links"
+          .pull-right
+            = f.button :submit, "Log in", class: 'btn-success'

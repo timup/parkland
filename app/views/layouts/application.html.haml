@@ -8,10 +8,8 @@
     = csrf_meta_tags
     = stylesheet_link_tag :application, media: "all"
   %body
-    %header.header
-      = render "navbar"
-    .container
-      = render "flashes"
+    = render "header"
+    = render "flashes"
     = yield
       
     - if current_user.present?

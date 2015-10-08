@@ -110,6 +110,14 @@
   }
 }
 
+.alert-float {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
 .alert-notice {
   @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text)
 }

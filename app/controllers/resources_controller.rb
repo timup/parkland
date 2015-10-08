@@ -80,6 +80,6 @@ class ResourcesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def resource_params
-      params.require(:resource).permit(:id, :description, :href, :name, :image, :type, :organization, :org_href, :org_description)
+      params.require(:resource).permit(:id, :description, :href, :name, :image, :type)
     end
 end
