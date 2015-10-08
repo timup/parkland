@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.2"
+ruby "2.2.3"
 
 gem "acts_as_list"
 gem "airbrake"
@@ -25,6 +25,7 @@ gem "jquery-ui-rails"
 gem "newrelic_rpm", ">= 3.9.8"
 gem "normalize-rails", "~> 3.0.0"
 gem "pg"
+gem "puma"
 gem "rack-canonical-host"
 gem "rails", "4.2.1"
 gem "recipient_interceptor"
@@ -32,7 +33,6 @@ gem "sass-rails", "~> 5.0"
 gem "simple_form"
 gem "title"
 gem "uglifier"
-gem "unicorn"
 
 group :development do
   gem "spring"
