@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(version: 20150926180012) do
   add_index "resource_collections", ["collection_id"], name: "index_resource_collections_on_collection_id", using: :btree
   add_index "resource_collections", ["resource_id"], name: "index_resource_collections_on_resource_id", using: :btree
 
+  create_table "resource_tags", force: :cascade do |t|
+    t.integer  "resource_id"
+    t.integer  "tag_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "resource_tags", ["resource_id"], name: "index_resource_tags_on_resource_id", using: :btree
+  add_index "resource_tags", ["tag_id"], name: "index_resource_tags_on_tag_id", using: :btree
+
   create_table "resources", force: :cascade do |t|
     t.string   "name"
     t.string   "href"
@@ -118,6 +128,13 @@ ActiveRecord::Schema.define(version: 20150926180012) do
 
   add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true, using: :btree
   add_index "resources", ["user_id"], name: "index_resources_on_user_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -145,5 +162,7 @@ ActiveRecord::Schema.define(version: 20150926180012) do
   add_foreign_key "collections", "users"
   add_foreign_key "resource_collections", "collections"
   add_foreign_key "resource_collections", "resources"
+  add_foreign_key "resource_tags", "resources"
+  add_foreign_key "resource_tags", "tags"
   add_foreign_key "resources", "users"
 end
