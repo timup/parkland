@@ -4,6 +4,8 @@
     .col-md-2
     .col-md-8
       .form-inputs
-        = f.input :name, input_html: {class: "collection-form-input form-input"}, placeholder: "Enter the collection's name"
+        = f.input :name, required: true, input_html: {class: "collection-form-input form-input"}, placeholder: "Enter the collection's name"
+        = f.input :image, as: :file, required: true
+        = f.input :description, placeholder: "Tell us more about this collection"
       .form-actions
         = f.button :submit

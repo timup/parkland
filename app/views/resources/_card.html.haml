@@ -35,5 +35,11 @@
     .list-group-item
       %p.list-group-item-text Last Updated
       %h4.list-group-item-heading= resource.updated_at
+    - if can? :collect_one, @resource and current_user.collections.count > 0
+      .list-group-item
+        %p.list-group-item-text Collect
+        - @resource = @resource.becomes(Resource)
+        = form_for @resource, url: collect_one_resource_path(@resource), remote: true, html: {method: :post, class: 'list-group-item-heading'} do |f|
+          = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
     
     

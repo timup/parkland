@@ -1,10 +1,15 @@
-.page-header
-  .row
-    .col-sm-offset-1.col-sm-10
-      %h1
-        = @collection
-        %small= "by #{@collection.owner}"
-      %h2.collection-description
-        = @collection.description
+.page-image-header{style: "background-image:url(#{image_path(@collection.image)});"}
+  .page-image-header--shadow
+    .container.page-image-header--heading
+      .row
+        .col-sm-offset-1.col-sm-10
+          %h1= @collection
+          %h2.collection-description= @collection.description
+          .page-image-header--heading--curator
+            = link_to user_path(@collection.owner) do
+              %span.user-image
+                = image_tag @collection.owner.image
+              %span= "by #{@collection.owner}"
 
-= render 'resource_collections/list', resource_collections: @resource_collections
+.container
+  = render 'resource_collections/list', resource_collections: @resource_collections

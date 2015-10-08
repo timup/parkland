@@ -12,26 +12,26 @@
       = render "navbar"
     .container
       = render "flashes"
-      = yield
+    = yield
       
-      - if current_user.present?
-        #add-resource-modal.modal.fade{"tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true", "style" => "display: none;"}
-          .modal-dialog
-            .modal-content.person-modal-body#new-resource-modal
-              .modal-head.text-center
-                %button.btn.btn-lg.btn-default.form-select-btn.person-btn-modal#person-btn-modal
-                  Person
-                %button.btn.btn-default.form-select-btn.company-btn-modal#company-btn-modal
-                  Company
-                %button.btn.btn-default.form-select-btn.collection-btn-modal#collection-btn-modal
-                  Collection
-              .modal-body#modal-body
-                #person-form
-                  = render 'resources/person_form', resource: @new_resource
-                #company-form
-                  = render 'resources/company_form', resource: @new_resource
-                #collection-form
-                  = render 'collections/form', collection: @new_collection
+    - if current_user.present?
+      #add-resource-modal.modal.fade{"tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true", "style" => "display: none;"}
+        .modal-dialog
+          .modal-content.person-modal-body#new-resource-modal
+            .modal-head.text-center
+              %button.btn.btn-lg.btn-default.form-select-btn.person-btn-modal#person-btn-modal
+                Person
+              %button.btn.btn-default.form-select-btn.company-btn-modal#company-btn-modal
+                Company
+              %button.btn.btn-default.form-select-btn.collection-btn-modal#collection-btn-modal
+                Collection
+            .modal-body#modal-body
+              #person-form
+                = render 'resources/person_form', resource: @new_resource
+              #company-form
+                = render 'resources/company_form', resource: @new_resource
+              #collection-form
+                = render 'collections/form', collection: @new_collection
 
-    = render "footer"
-    = render "javascript"
+  = render "footer"
+  = render "javascript"

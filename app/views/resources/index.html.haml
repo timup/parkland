@@ -1,7 +1,5 @@
-.page-header
-  %h1
-    Top Resources
-  %h2 The most popular resources in the Triangle.
-   
-
-= render 'list', resources: @resources
+.container
+  .page-header
+    %h1 Top Resources
+    %h2 The most popular resources in the Triangle.
+  = render 'list', resources: @resources
