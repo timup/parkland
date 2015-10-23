@@ -12,5 +12,6 @@ class AdminAbility
 
     can [:create, :read, :update], :all
     can :view, :dashboard
+
   end
 end

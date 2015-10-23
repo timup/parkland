@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_invite_path_for(resource)
+    if resource.is_a?(Admin) 
+      admin_admins_path
+    end
+  end
+
   private
     def setup_new_form
       @new_resource = Resource.new

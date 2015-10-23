@@ -2,6 +2,6 @@
   .alert-float
     .container
       .row
-        .col-sm-offset-2.col-sm-8
+        .col-sm-12
           - flash.each do |key, value|
             %div{class: "alert alert-#{key} text-center", role: "alert"}= value

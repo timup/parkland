@@ -3,4 +3,10 @@ class Admin < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :recoverable,
          :rememberable, :trackable, :validatable
+
+
+  def invited?
+    invitation_created_at && invitation_accepted_at.blank?
+  end
+
 end

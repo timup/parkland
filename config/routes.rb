@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   devise_for :admins, skip: :registrations
   namespace :admins, as: "admin" do
     root to: "dashboard#index"
+    resources :admins, only: :index
+    
   end
 
 end

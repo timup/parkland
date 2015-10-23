@@ -11,9 +11,9 @@
   %body
     %header.header
       = render "admins/navbar"
-    .container
       = render "flashes"
-      = yield
+      .container
+        = yield
           
     = render "footer"
     = render "javascript"

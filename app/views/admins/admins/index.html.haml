@@ -1,0 +1,19 @@
+.admin-page-header
+  %span.h2 Admins
+  .pull-right
+    = render "admins/invitations/form", resource: @admin
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Email
+      %th Last Signed In
+  %tbody
+    - @admins.each do |admin|
+      %tr{ class: ("invited" if admin.invited?) }
+        %td= admin.email
+        %td
+          - if admin.invited?
+            %em invited
+          - else
+            = time_ago_in_words(admin.last_sign_in_at) + " ago"
