@@ -1,3 +1,6 @@
+data:
+  read:
+    - config/locales/devise*.%{locale}.yml
 search:
   paths:
     - "app/controllers"
