@@ -12,6 +12,11 @@ $(function() {
   });
 });
 
+$(document).on('ajax:success', '.js-feature-collection', function(evt, data, status, xhr) {
+  $form = $(evt.currentTarget);
+  $form.find(".feature-star").toggleClass("featured");
+})
+
 // $(function() {
 //   var colors = ['88A825','35203B','911146','CF4A30','ED8C2B'];
 //   $('.collection-panel').each(function() {

@@ -19,7 +19,13 @@ Rails.application.routes.draw do
   devise_for :admins, skip: :registrations
   namespace :admins, as: "admin" do
     root to: "dashboard#index"
+    resources :collections do
+      member do
+        put :feature, defaults: { format: "json" }
+      end
+    end
     resources :admins, only: :index
+
     
   end
 

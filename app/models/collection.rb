@@ -15,6 +15,14 @@ class Collection < ActiveRecord::Base
     name
   end
 
+  def toggle_featured
+    if featured_at.blank?
+      touch(:featured_at)
+    else
+      update_attribute(:featured_at, nil)
+    end
+  end
+
   def small_description
     truncate(description, length: 56)
   end
