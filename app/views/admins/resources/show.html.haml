@@ -1,0 +1,17 @@
+.admin-resources
+  .admin-page-header
+    %h2= @resource.name
+
+  .row
+    .col-sm-4
+      .image
+        = image_tag @resource.image
+    .col-sm-8
+      %h4 Owner
+      %p= @resource.name
+
+      %h4 Description
+      %p= @resource.description
+
+      %h4 Link
+      %p= @resource.href

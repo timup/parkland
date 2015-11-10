@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         put :feature, defaults: { format: "json" }
       end
     end
+    resources :resources
     resources :admins, only: :index
 
     

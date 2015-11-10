@@ -123,6 +123,11 @@
   @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text)
 }
 
+.image {
+  width: 100%;
+  img { max-width: 100% }
+}
+
 a:focus,
 .btn:focus {
   outline: none;

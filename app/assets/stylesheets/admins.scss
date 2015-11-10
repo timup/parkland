@@ -8,12 +8,15 @@
 
 
 .admin-collections
-  .feature-collection {
+  .btn-feature {
     color: #bbb;
     font-size: 16px;
     padding-bottom: 0;
   	padding-top: 0;
     &:hover { color: mediumvioletred }
+  }
+  .feature-collection {
+    display: inline-block;
   }
   .featured {
     color: mediumvioletred

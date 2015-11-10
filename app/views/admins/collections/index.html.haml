@@ -2,22 +2,24 @@
   .admin-page-header
     %h2 Collections
 
-  %table.table.table-striped
-    %thead
-      %tr
-        %th Name
-        %th Owner
-        %th.text-center Featured
-        %th Created
-        %th View
-    %tbody
-      - @collections.each do |collection|
-        %tr
-          %td= collection.name
-          %td= collection.owner
-          %td.text-center
-            = button_to feature_admin_collection_path(collection), method: :put, remote: true, class: "btn btn-link feature-collection", form_class: "js-feature-collection" do
-              %i.fa.fa-star.feature-star{ class: ("featured" if collection.featured_at )}
+  .row
+    .col-sm-12
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Name
+            %th Owner
+            %th.text-center Featured
+            %th Created
+            %th View
+        %tbody
+          - @collections.each do |collection|
+            %tr
+              %td= collection.name
+              %td= collection.owner
+              %td.text-center
+                = button_to feature_admin_collection_path(collection), method: :put, remote: true, class: "btn btn-link btn-feature", form_class: "js-feature-collection" do
+                  %i.fa.fa-star.feature-star{ class: ("featured" if collection.featured_at )}
 
-          %td= l collection.created_at, format: :date
-          %td= link_to "View", admin_collection_path(collection)
+              %td= l collection.created_at, format: :date
+              %td= link_to "View", admin_collection_path(collection)

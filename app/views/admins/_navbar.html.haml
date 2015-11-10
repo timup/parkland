@@ -11,6 +11,8 @@
       %ul.nav.navbar-nav
         %li{class: ('active' if controller_name == "collections")}
           = link_to "Collections", admin_collections_path
+        %li{class: ('active' if controller_name == "resources")}
+          = link_to "Resources", admin_resources_path
         %li{class: ('active' if controller_name == "admins")}
           = link_to "Admins", admin_admins_path
 
