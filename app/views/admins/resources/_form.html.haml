@@ -1,0 +1,21 @@
+- resource = resource.becomes(Resource)
+= simple_form_for([:admin, resource], html: {class: 'form-horizontal'}, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean}) do |f|
+  = f.error_notification
+
+  .row
+    .col-md-2
+    .col-md-8
+      .form-inputs
+        = f.input :name
+        = f.input :href, label: "Link", placeholder: "http://www..."
+        = f.input :description, placeholder: "Describe the individual briefly"
+        = f.input :image, as: :file
+        - if resource.image.present?
+          .row
+            .col-sm-7
+              .form-image
+                = image_tag resource.image, class: "imgix-fluid"
+      
+      .form-actions
+        .text-right
+          = f.button :submit

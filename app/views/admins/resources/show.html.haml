@@ -1,6 +1,9 @@
 .admin-resources
   .admin-page-header
+    .pull-right
+      = link_to "Edit", edit_admin_resource_path(@resource), class: "btn btn-default"
     %h2= @resource.name
+
 
   .row
     .col-sm-4
