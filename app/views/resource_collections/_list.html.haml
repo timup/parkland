@@ -4,8 +4,6 @@
     %li.resource-item.collections-sortable-item{id: "resource_#{resource.id}", data: {href: "#{resource_path(resource)}"}}
       - if current_user == @collection.owner
         .resource-item--rank.handle.collections-sortable-position= rc.position
-      - else
-        .resource-item--rank= rc.position
       .resource-item--thumbnail{style: "background-image:url(#{image_path(resource.image)});"}
       .resource-item--text
         = link_to resource, resource, class: "resource-item--text--name"
