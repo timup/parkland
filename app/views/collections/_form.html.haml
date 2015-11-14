@@ -7,7 +7,7 @@
           = image_tag collection.image, class: "imgix-fluid"
       .form-inputs
         = f.input :name, required: true, autofocus: true, placeholder: "Enter the collection's name", hint: "Changing the name will change the URL"
-        = f.input :image, as: :file, required: true
+        = f.input :image, as: :file
         = f.input :description, placeholder: "Tell us more about this collection"
       .form-actions.text-right
         - if collection.id
