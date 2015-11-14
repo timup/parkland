@@ -7,23 +7,22 @@
       .resource-item--thumbnail{style: "background-image:url(#{image_path(resource.image)});"}
       .resource-item--text
         = link_to resource, resource, class: "resource-item--text--name"
-        %span.resource-item--text--description= resource.description
+        %span.resource-item--text--description
+          - if current_user == @collection.owner
+            = form_for rc, remote: true, html: {method: :put} do |f|
+              = f.text_area :description, placeholder: rc.description
+          - elsif rc.description.present?
+            = rc.description
+          - else
+            = resource.description
         .resource-item--text--data
           %span.resource-item--text--data--type= resource.type
           %span.resource-item--text--data--tags
       .resource-item--actions
         .resource-item--actions--collect
-          -# - if can? :collect_one, resource and current_user.collections.count > 0
-          -#   = form_for resource, url: collect_one_resource_path(resource), remote: true, html: {method: :post} do |f|
-          -#     = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
-        .resource-item--actions--describe
-          -# - if current_user == @collection.owner
-          -#   %td
-          -#     = form_for resource_collection, remote: true, html: {method: :put} do |f|
-          -#       = f.text_field :description, placeholder: resource_collection.description
-          -# - else
-          -#   %td
-          -#     = resource_collection.description
+          - if can? :collect_one, resource and current_user.collections.count > 0
+            = form_for resource, url: collect_one_resource_path(resource), remote: true, html: {method: :post} do |f|
+              = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
         .resource-item--actions--owner
           = link_to resource.owner, class: "user-image" do
             %span.user-image
