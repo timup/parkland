@@ -2,8 +2,8 @@
   .panel-heading.clearfix
     %h3.panel-title.pull-left Resource Info
     .pull-right
-      = link_to edit_resource_path(resource) do
-        .label.label-warning
+      - if can? :edit, resource
+        = link_to edit_resource_path(resource), class: 'btn btn-warning btn-xs' do
           %i.fa.fa-pencil
           edit
   .list-group
