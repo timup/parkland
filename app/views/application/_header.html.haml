@@ -24,11 +24,18 @@
                 %a.btn-create-resource{data: {toggle: "modal", target: "#add-resource-modal"}}
                   %i.fa.fa-2x.fa-plus
             - if user_signed_in?
-              = link_to current_user, user_path(current_user), class: 'navbar-text'
-              %li
-                = link_to destroy_user_session_path, method: :delete, class: 'navbar-link' do
-                  %i.fa.fa-sign-out
-                  Logout
+              %li.dropdown
+                %a.dropdown-toggle.user-image-dropdown{href: "#", data: {toggle: "dropdown"}}
+                  - if current_user.image.present?
+                    .user-image
+                      = image_tag current_user.image
+                  - else
+                    .user-name
+                      = current_user
+                %ul.dropdown-menu
+                  %li= link_to "View Collections", user_path(current_user)
+                  %li= link_to "Edit Profile", edit_user_registration_path
+                  %li= link_to "Logout", destroy_user_session_path, method: :delete
             - else
               %li
                 = link_to new_user_session_path, class: 'navbar-link' do
