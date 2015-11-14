@@ -22,18 +22,6 @@
     .list-group-item
       %p.list-group-item-text Description
       %h4.list-group-item-heading= resource.description
-    - if resource.organization.present?
-      .list-group-item
-        %p.list-group-item-text Organization
-        %h4.list-group-item-heading resource.organization
-    - if resource.org_href.present?
-      .list-group-item
-        %p.list-group-item-text Organization Link
-        %h4.list-group-item-heading resource.org_href
-    - if resource.org_description.present?
-      .list-group-item
-        %p.list-group-item-text Organization Description
-        %h4.list-group-item-heading resource.org_description
     .list-group-item
       %p.list-group-item-text Created
       %h4.list-group-item-heading= resource.created_at
@@ -46,5 +34,4 @@
         - @resource = @resource.becomes(Resource)
         = form_for @resource, url: collect_one_resource_path(@resource), remote: true, html: {method: :post, class: 'list-group-item-heading'} do |f|
           = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
-    
     
