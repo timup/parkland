@@ -1,7 +1,7 @@
 # Parkland
 [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)][license]
 [![Dependency Status](http://img.shields.io/gemnasium/vaporware/parkland.svg?style=flat)][gemnasium]
-[![Build Status](https://img.shields.io/circleci/project/BrightFlair/PHP.Gt.svg?style=flat)][circleci]
+[![Build Status](https://img.shields.io/circleci/project/vaporware/parkland.svg?style=flat)][circleci]
 [![Code Coverage](http://img.shields.io/coveralls/vaporware/parkland.svg?style=flat)][coveralls]
 [![Code Quality](http://img.shields.io/codeclimate/github/vaporware/parkland.svg?style=flat)][codeclimate]
 
