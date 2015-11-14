@@ -10,6 +10,7 @@ class Admins::ResourcesController < AdminsController
 
   # GET admins/resources/1/edit
   def edit
+    @users = User.alphabetical
   end
   
   # GET admins/resources/1/
@@ -22,6 +23,7 @@ class Admins::ResourcesController < AdminsController
     if @resource.update(resource_params)
       redirect_to admin_resource_path(@resource), notice: 'Resource was successfully updated.'
     else
+      @users = User.alphabetical
       render :edit
     end
   end
@@ -34,7 +36,7 @@ class Admins::ResourcesController < AdminsController
     end
 
     def resource_params
-      params.require(:resource).permit(:id, :description, :href, :name, :image, :type)
+      params.require(:resource).permit(:id, :description, :href, :name, :user_id, :image, :type)
     end
 
 end

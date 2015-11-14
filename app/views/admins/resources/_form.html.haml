@@ -7,6 +7,7 @@
     .col-md-8
       .form-inputs
         = f.input :name
+        = f.association :owner, collection: @users, prompt: "Select a user", input_html: { class: "selectpicker", data: { "live-search": true }}
         = f.input :href, label: "Link", placeholder: "http://www..."
         = f.input :description, placeholder: "Describe the individual briefly"
         = f.input :image, as: :file
