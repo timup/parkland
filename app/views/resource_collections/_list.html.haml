@@ -11,10 +11,10 @@
           - if current_user == @collection.owner
             = form_for rc, remote: true, html: {method: :put} do |f|
               = f.text_area :description, placeholder: rc.description
-          - elsif rc.description.present?
-            = rc.description
+          - if rc.description.present?
+            .resource-item--text--description--text= rc.description
           - else
-            = resource.description
+            .resource-item--text--description--text= resource.description
         .resource-item--text--data
           %span.resource-item--text--data--type= resource.type
           %span.resource-item--text--data--tags

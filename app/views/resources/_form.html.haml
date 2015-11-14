@@ -5,15 +5,14 @@
   .row
     .col-md-2
     .col-md-8
+      - if resource.image.present?
+        .form-image
+          = image_tag resource.image, class: "imgix-fluid"
       .form-inputs
         = f.input :name
         = f.input :href, label: "Link", placeholder: "http://www..."
-        = f.input :description, placeholder: "Describe the individual briefly"
+        = f.input :type, collection: ["Person", "Company"], include_blank: false
+        = f.input :description, placeholder: "Describe the resource briefly"
         = f.input :image, as: :file
-        - if resource.image.present?
-          .row
-            .col-sm-7
-              .form-image
-                = image_tag resource.image, class: "imgix-fluid"
-      .form-actions
+      .form-actions.text-right
         = f.button :submit

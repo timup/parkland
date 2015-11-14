@@ -8,6 +8,16 @@
       .resource-item--actions--collect {
         opacity: 1;
       }
+      .resource-item--text {
+        .resource-item--text--description {
+          form textarea { 
+            display: block;
+          }
+          form ~ .resource-item--text--description--text {
+            display: none;
+          }
+        }
+      }
     }
     transition: background, 0.1s;
     background: white;
@@ -66,10 +76,14 @@
         margin: 5px 0 0 0;
         display: block;
         line-height: 20px;
-        textarea {
+        form textarea {
+          box-sizing: content-box;
+          display: none;
           resize: vertical;
-          width: 98%;
+          width: 96%;
+          height: 25px;
           border-radius: 4px;
+          border-color: #bbb;
           padding: 3px 7px;
         }
       }
@@ -125,4 +139,11 @@
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   padding-bottom: 2px;
+}
+
+.form-image {
+  img.imgix-fluid {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
 }

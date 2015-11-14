@@ -1,6 +1,11 @@
 .panel.panel-default
   .panel-heading.clearfix
     %h3.panel-title.pull-left Resource Info
+    .pull-right
+      = link_to edit_resource_path(resource) do
+        .label.label-warning
+          %i.fa.fa-pencil
+          edit
   .list-group
     .list-group-item
       %p.list-group-item-text Name
