@@ -1,12 +1,11 @@
 - resource = resource.becomes(Resource)
 = simple_form_for(resource, html: {class: 'form-horizontal'}, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean}) do |f|
   = f.error_notification
-
   .row
     .col-md-2
     .col-md-8
       - if resource.image.present?
-        .form-image
+        .form-image.text-center
           = image_tag resource.image, class: "imgix-fluid"
       .form-inputs
         = f.input :name
@@ -15,4 +14,6 @@
         = f.input :description, placeholder: "Describe the resource briefly"
         = f.input :image, as: :file
       .form-actions.text-right
+        - if resource.id
+          = link_to "Cancel", resource_path(resource), class: "btn btn-danger"
         = f.button :submit

@@ -3,7 +3,11 @@
     .container.page-image-header--heading
       .row
         .col-sm-offset-1.col-sm-10
-          %h1= @collection
+          %h1
+            = @collection
+            - if can? :edit, @collection
+              = link_to edit_collection_path(@collection) do 
+                %i.fa.fa-pencil-square-o
           %h2.collection-description= @collection.description
           .page-image-header--heading--curator
             = link_to user_path(@collection.owner) do
