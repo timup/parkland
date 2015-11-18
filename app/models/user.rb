@@ -14,6 +14,9 @@
   has_many :collections
   has_many :resources
 
+  validates :email, presence: true
+  validates :name, presence: true
+
   def to_s
     name
   end
