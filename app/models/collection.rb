@@ -11,6 +11,9 @@ class Collection < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  validates :name, presence: true
+  validates :owner, presence: true
+
   def to_s
     name
   end
