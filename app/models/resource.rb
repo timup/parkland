@@ -9,6 +9,9 @@ class Resource < ActiveRecord::Base
   scope :alphabetical, -> { order(:name) }
   scope :top, ->(limit=5) { order(collections_count: :desc).limit(limit) }
 
+  validates_formatting_of :href, using: :url
+  validates :type, inclusion: {in: ["Person", "Company"], message: "must be a Person or a Company"}
+
   mount_uploader :image, ImageUploader
 
   def to_s
