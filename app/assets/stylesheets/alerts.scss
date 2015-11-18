@@ -1,0 +1,19 @@
+.alert-fixed {
+  position: fixed;
+  top: 82px;
+  z-index: 1000;
+  width: 40%;
+  left: 30%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.alert-notice {
+  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text)
+}
+
+.alert-alert {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text)
+}

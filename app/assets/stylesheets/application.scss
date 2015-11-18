@@ -12,6 +12,7 @@
 
 // Custom Elements
 @import "admins";
+@import "alerts";
 @import "collections";
 @import "footer";
 @import "modal";
@@ -120,18 +121,6 @@
       }
     }
   }
-}
-
-.alert-float {
-  margin: 20px 0;
-}
-
-.alert-notice {
-  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text)
-}
-
-.alert-alert {
-  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text)
 }
 
 .image {
