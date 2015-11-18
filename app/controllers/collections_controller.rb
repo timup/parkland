@@ -52,16 +52,14 @@ class CollectionsController < ApplicationController
   # DELETE /collections/1
   def destroy
     @collection.destroy
-    redirect_to collections_url, notice: 'Collection was successfully destroyed.'
+    redirect_to current_user, notice: 'Collection was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_collection
       @collection = Collection.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def collection_params
       params.require(:collection).permit(:name, :image, :description)
     end

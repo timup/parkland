@@ -1,30 +1,37 @@
-%ul.resource-items.collections-sortable{data: {update: {url: "#{sort_collection_path(@collection)}" }}}
-  - resource_collections.each do |rc|
-    - resource = rc.resource.becomes(Resource)
-    %li.resource-item.collections-sortable-item{id: "resource_#{resource.id}", data: {href: "#{resource_path(resource)}"}}
-      - if current_user == @collection.owner
-        .resource-item--rank.handle.collections-sortable-position= rc.position
-      .resource-item--thumbnail{style: "background-image:url(#{image_path(resource.image)});"}
-      .resource-item--text
-        = link_to resource, resource, class: "resource-item--text--name"
-        %span.resource-item--text--description
-          - if current_user == @collection.owner
-            = form_for rc, remote: true, html: {method: :put} do |f|
-              = f.text_area :description, placeholder: rc.description
-          - if rc.description.present?
-            .resource-item--text--description--text= rc.description
-          - else
-            .resource-item--text--description--text= resource.description
-        .resource-item--text--data
-          %span.resource-item--text--data--type= resource.type
-          %span.resource-item--text--data--tags
-      .resource-item--actions
-        .resource-item--actions--collect
-          - if can? :collect_one, resource and current_user.collections.count > 0
-            = form_for resource, url: collect_one_resource_path(resource), remote: true, html: {method: :post} do |f|
-              = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
-        .resource-item--actions--owner
-          = link_to resource.owner, class: "user-image" do
-            %span.user-image
-              .user-image--badge
-              = image_tag resource.owner.image
+- if resource_collections.present?
+  %ul.resource-items.collections-sortable{data: {update: {url: "#{sort_collection_path(@collection)}" }}}
+    - resource_collections.each do |rc|
+      - resource = rc.resource.becomes(Resource)
+      %li.resource-item.collections-sortable-item{id: "resource_#{resource.id}", data: {href: "#{resource_path(resource)}"}}
+        - if current_user == @collection.owner
+          .resource-item--rank.handle.collections-sortable-position= rc.position
+        .resource-item--thumbnail{style: "background-image:url(#{image_path(resource.image)});"}
+        .resource-item--text
+          = link_to resource, resource, class: "resource-item--text--name"
+          %span.resource-item--text--description
+            - if current_user == @collection.owner
+              = form_for rc, remote: true, html: {method: :put} do |f|
+                = f.text_area :description, placeholder: rc.description
+            - if rc.description.present?
+              .resource-item--text--description--text= rc.description
+            - else
+              .resource-item--text--description--text= resource.description
+          .resource-item--text--data
+            %span.resource-item--text--data--type= resource.type
+            %span.resource-item--text--data--tags
+        .resource-item--actions
+          .resource-item--actions--collect
+            - if can? :collect_one, resource and current_user.collections.count > 0
+              = form_for resource, url: collect_one_resource_path(resource), remote: true, html: {method: :post} do |f|
+                = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
+          .resource-item--actions--owner
+            = link_to resource.owner, class: "user-image" do
+              %span.user-image
+                .user-image--badge
+                = image_tag resource.owner.image
+- else
+  .resource-items
+    .alert.alert-warning
+      This collection is empty. There's always
+      = succeed "." do
+        = link_to "more to explore", collections_path

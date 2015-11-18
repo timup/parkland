@@ -14,6 +14,12 @@
               %span.user-image
                 = image_tag @collection.owner.image
               %span= "by #{@collection.owner}"
+      .row
+        .col-sm-offset-5.col-sm-2
+          - if can? :destroy, @collection
+            = link_to @collection, class: "collection-delete", method: :delete, data: {confirm: "Are you sure you want to delete this collection?"} do
+              %i.fa.fa-trash-o
+              Delete Collection
 
 .container
   = render 'resource_collections/list', resource_collections: @resource_collections
