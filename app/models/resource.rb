@@ -10,7 +10,9 @@ class Resource < ActiveRecord::Base
   scope :top, ->(limit=5) { order(collections_count: :desc).limit(limit) }
 
   validates_formatting_of :href, using: :url
-  validates :type, inclusion: {in: ["Person", "Company"], message: "must be a Person or a Company"}
+  validates :name, presence: true
+  validates :owner, presence: true
+  validates :type, inclusion: {in: ["Person", "Company"], message: "must be a specific type"}
 
   mount_uploader :image, ImageUploader
 
