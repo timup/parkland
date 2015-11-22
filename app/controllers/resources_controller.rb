@@ -53,6 +53,7 @@ class ResourcesController < ApplicationController
     if @resource.save
       redirect_to resource_path(@resource), notice: 'Resource was successfully created.'
     else
+      @resource = @resource.becomes(Resource)
       render :new
     end
   end
@@ -62,6 +63,7 @@ class ResourcesController < ApplicationController
     if @resource.update(resource_params)
       redirect_to @resource, notice: 'Resource was successfully updated.'
     else
+      @resource = @resource.becomes(Resource)
       render :edit
     end
   end
