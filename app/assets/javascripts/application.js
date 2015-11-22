@@ -5,6 +5,5 @@
 //= require jquery-ui.min
 
 //= require collections
-//= require modal
 //= require navbar
 //= require resources

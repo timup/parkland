@@ -1,15 +1,13 @@
-= simple_form_for(collection, html: {class: 'form-horizontal'}, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean}) do |f|
+= simple_form_for(collection) do |f|
   = f.error_notification
-  .row
-    .col-md-offset-2.col-md-8
-      - if collection.image.present?
-        .form-image.text-center
-          = image_tag collection.image, class: "imgix-fluid"
-      .form-inputs
-        = f.input :name, required: true, autofocus: true, placeholder: "Enter the collection's name", hint: "Changing the name will change the URL"
-        = f.input :image, as: :file
-        = f.input :description, placeholder: "Tell us more about this collection"
-      .form-actions.text-right
-        - if collection.id
-          = link_to "Cancel", collection_path(collection), class: "btn btn-danger"
-        = f.button :submit
+  - if collection.image.present?
+    .form-image.text-center
+      = image_tag collection.image, class: "imgix-fluid"
+  .form-inputs
+    = f.input :name, required: true, autofocus: true, placeholder: "Enter the collection's name"
+    = f.input :image, as: :file
+    = f.input :description, placeholder: "Tell us more about this collection"
+  .form-actions.text-right
+    - if collection.id
+      = link_to "Cancel", collection_path(collection), class: "btn btn-danger"
+    = f.button :submit

@@ -21,7 +21,7 @@
           %ul.nav.navbar-nav
             - if can? :create, @new_resource
               %li
-                %a.btn-create-resource{data: {toggle: "modal", target: "#add-resource-modal"}}
+                %a.btn-create-resource{data: {toggle: "modal", target: "#new-resource-modal"}}
                   %i.fa.fa-2x.fa-plus
             - if user_signed_in?
               %li.dropdown

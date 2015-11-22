@@ -1,12 +1,10 @@
-= simple_form_for(resource, html: {class: 'form-horizontal'}, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean}) do |f|
+= simple_form_for(resource) do |f|
   = f.error_notification
-  .row
-    .col-sm-offset-2.col-sm-8
-      .form-inputs
-        = f.input :name, input_html: {class: "company-form-input form-input"}, placeholder: "Enter the company's name", required: true
-        = f.input :href, input_html: {class: "company-form-input form-input"}, label: "Link", placeholder: "http://www...", required: true
-        = f.input :image, as: :file
-        = f.input :description, input_html: {class: "company-form-input form-input"}, placeholder: "Describe the company briefly"
-        = f.hidden_field :type, value: "Company"
-      .form-actions.text-right
-        = f.button :submit
+  .form-inputs
+    = f.input :name, placeholder: "Enter the company's name", required: true
+    = f.input :href, label: "Link", placeholder: "http://www...", required: true
+    = f.input :image, as: :file
+    = f.input :description, placeholder: "Describe the company briefly"
+    = f.hidden_field :type, value: "Company"
+  .form-actions.text-right
+    = f.button :submit

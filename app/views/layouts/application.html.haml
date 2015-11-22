@@ -13,23 +13,27 @@
     = yield
       
     - if current_user.present?
-      #add-resource-modal.modal.fade{"tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true", "style" => "display: none;"}
+      .modal.fade#new-resource-modal
         .modal-dialog
-          .modal-content.person-modal-body#new-resource-modal
-            .modal-head.text-center
-              %button.btn.btn-lg.btn-default.form-select-btn.person-btn-modal#person-btn-modal
-                Person
-              %button.btn.btn-default.form-select-btn.company-btn-modal#company-btn-modal
-                Company
-              %button.btn.btn-default.form-select-btn.collection-btn-modal#collection-btn-modal
-                Collection
-            .modal-body#modal-body
-              #person-form
-                = render 'resources/person_form', resource: @new_resource
-              #company-form
-                = render 'resources/company_form', resource: @new_resource
-              #collection-form
-                = render 'collections/form', collection: @new_collection
+          .modal-content
+            .modal-head
+              %h3.modal-title
+                Share a resource
+              %ul.nav.nav-tabs.nav-justified
+                %li.active
+                  %a{href: "#new-person", data: {toggle: "tab"}} Person
+                %li
+                  %a{href: "#new-company", data: {toggle: "tab"}} Company
+                %li
+                  %a{href: "#new-collection", data: {toggle: "tab"}} Collection
+            .modal-body
+              .tab-content
+                .tab-pane.active#new-person
+                  = render 'resources/person_form', resource: @new_resource
+                .tab-pane#new-company
+                  = render 'resources/company_form', resource: @new_resource
+                .tab-pane#new-collection
+                  = render 'collections/form', collection: @new_collection
 
   = render "footer"
   = render "javascript"

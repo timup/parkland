@@ -15,7 +15,6 @@
 @import "alerts";
 @import "collections";
 @import "footer";
-@import "modal";
 @import "popover";
 @import "resources";
 @import "tables";
@@ -135,4 +134,30 @@ a:focus,
 
 a:hover, a:focus, a:active, a:visited {
   text-decoration: none;
+}
+
+#new-resource-modal {
+  .modal-title {
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .nav-tabs {
+    & li:first-child a {
+      &:hover, &:active, &:focus, &:visited {
+        border-left: 0;
+        border-top-left-radius: 0;
+      }
+      border-left: 0;
+      border-top-left-radius: 0;
+    }
+    & li:last-child a {
+      &:hover, &:active, &:focus, &:visited {
+        border-right: 0;
+        border-top-right-radius: 0;
+      }
+      border-right: 0;
+      border-top-right-radius: 0;
+    }
+  }
 }
