@@ -1,4 +1,5 @@
-- @resource = Resource.top(1).first.becomes(Resource)
+- @resource = Resource.top(1).first
+- @resource.becomes(Resource) if @resource.present?
 - @collection = Collection.featured(1).first
 - @user = User.featured(1).first
 
