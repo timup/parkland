@@ -5,12 +5,11 @@ class ResourcesController < ApplicationController
   # GET /resources
   def index
     #top resources, by collections_count
-    @resources = Resource.top(10)
+    @resources = Resource.top(10).map { |r| r.becomes(Resource) }
   end
 
   # GET /resources/1
   def show
-    @resource = @resource.becomes(Resource)
     @collections = @resource.collections.order(created_at: :asc)
   end
 
@@ -60,7 +59,6 @@ class ResourcesController < ApplicationController
 
   # PATCH/PUT /resources/1
   def update
-    @resource = @resource.becomes(Resource)
     if @resource.update(resource_params)
       redirect_to @resource, notice: 'Resource was successfully updated.'
     else
@@ -77,7 +75,7 @@ class ResourcesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_resource
-      @resource = Resource.find(params[:id])
+      @resource = Resource.find(params[:id]).becomes(Resource)
     end
 
     # Only allow a trusted parameter "white list" through.
