@@ -11,12 +11,12 @@
           = image_tag "logo.png"
       #parkland-navbar.collapse.navbar-collapse
         %ul.nav.navbar-nav
+          %li{class: ('active' if controller_name == "users")}
+            = link_to "Members", users_path
           %li{class: ('active' if controller_name == "resources")}
             = link_to "Resources", resources_path
           %li{class: ('active' if controller_name == "collections")}
             = link_to "Collections", collections_path
-          %li{class: ('active' if controller_name == "users")}
-            = link_to "Users", users_path
         .navbar-right
           %ul.nav.navbar-nav
             - if can? :create, @new_resource

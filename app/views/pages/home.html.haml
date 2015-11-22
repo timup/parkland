@@ -1,3 +1,27 @@
+- @resource = Resource.top(1).first.becomes(Resource)
+- @collection = Collection.featured(1).first
+- @user = User.featured(1).first
+
 .page-header
   %h1 Welcome to the Parkland.
   %h2 A place for the Triangle's members to curate resources.
+
+.container
+  .row
+    .col-sm-4
+      .home-button.page-image-header{style: "background-image:url(#{image_path(@user.image)});"}
+        .home-button.page-image-header--shadow
+          .page-image-header--heading
+            %h1= link_to "community leaders", users_path
+    .col-sm-4
+      .home-button.page-image-header{style: "background-image:url(#{image_path(@resource.image)});"}
+        .home-button.page-image-header--shadow
+          .page-image-header--heading
+            %h1= link_to "popular resources", resources_path
+    .col-sm-4
+      .home-button.page-image-header{style: "background-image:url(#{image_path(@collection.image)});"}
+        .home-button.page-image-header--shadow
+          .page-image-header--heading
+            %h1= link_to "featured collections", collections_path
+
+
