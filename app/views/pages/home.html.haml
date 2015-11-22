@@ -1,5 +1,5 @@
 - @resource = Resource.top(1).first
-- @resource.becomes(Resource) if @resource.present?
+- @resource = @resource.becomes(Resource) if @resource.present?
 - @collection = Collection.featured(1).first
 - @user = User.featured(1).first
 
@@ -24,5 +24,3 @@
         .home-button.page-image-header--shadow
           .page-image-header--heading
             %h1= link_to "featured collections", collections_path
-
-
