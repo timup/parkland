@@ -9,7 +9,7 @@
               = link_to edit_collection_path(@collection) do 
                 %i.fa.fa-pencil-square-o
           %h2.collection-description= @collection.description
-          .page-image-header--heading--curator
+          .page-image-header--heading--owner
             = link_to user_path(@collection.owner) do
               %span.user-image
                 = image_tag @collection.owner.image

@@ -17,3 +17,9 @@ en:
 
   titles:
     application: Parkland
+    collections:
+      index: "Featured Collections of Resources in the Triangle | Parkland"
+      show: "%{collection} | Parkland"
+    resources:
+      index: "Top Resources in the Triangle | Parkland"
+      show: "%{resource} | Parkland"

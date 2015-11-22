@@ -10,6 +10,8 @@ class ResourcesController < ApplicationController
 
   # GET /resources/1
   def show
+    @resource = @resource.becomes(Resource)
+    @collections = @resource.collections.order(created_at: :asc)
   end
 
   # GET /resources/new
