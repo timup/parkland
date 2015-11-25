@@ -12,6 +12,7 @@ class AdminAbility
 
     can [:create, :read, :update], :all
     can :view, :dashboard
+    can :manage, User
     can :manage, Collection
     can :manage, Resource
 

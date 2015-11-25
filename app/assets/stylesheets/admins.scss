@@ -7,7 +7,7 @@
 .table > tbody > tr.invited { background-color: lightyellow }
 
 
-.admin-collections
+.admin-users, .admin-collections {
   .btn-feature {
     color: #bbb;
     font-size: 16px;
@@ -21,3 +21,4 @@
   .featured {
     color: mediumvioletred
   }
+}

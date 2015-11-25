@@ -21,4 +21,12 @@
     name
   end
 
+  def toggle_featured
+    if featured_at.blank?
+      touch(:featured_at)
+    else
+      update_attribute(:featured_at, nil)
+    end
+  end
+
 end

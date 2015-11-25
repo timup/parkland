@@ -18,7 +18,7 @@
               %td= collection.name
               %td= collection.owner
               %td.text-center
-                = button_to feature_admin_collection_path(collection), method: :put, remote: true, class: "btn btn-link btn-feature", form_class: "js-feature-collection" do
+                = button_to feature_admin_collection_path(collection), method: :put, remote: true, class: "btn btn-link btn-feature", form_class: "js-feature-item" do
                   %i.fa.fa-star.feature-star{ class: ("featured" if collection.featured_at )}
 
               %td= l collection.created_at, format: :date
