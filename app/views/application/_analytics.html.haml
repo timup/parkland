@@ -1,5 +1,36 @@
 - if ENV["SEGMENT_KEY"]
   :javascript
     window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
-    window.analytics.load(" ENV['SEGMENT_KEY'] ");
+    window.analytics.load("#{ENV['SEGMENT_KEY']}");
     window.analytics.page();
+- if ENV["PENDO_KEY"]
+  :javascript
+    window.pendo_options = {
+      apiKey: "#{ENV["PENDO_KEY"]}",
+      usePendoAgentAPI: false
+    };
+    (function() {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = ('https:' === document.location.protocol ? 'https://' : 'http://' ) + 'd3accju1t3mngt.cloudfront.net/js/pa.min.js';
+      var firstScript = document.getElementsByTagName('script')[0];
+      firstScript.parentNode.insertBefore(script, firstScript);
+    })();
+  - if current_user.present? and current_user.id.present?
+    :javascript
+      $.extend(true, window.pendo_options,{
+        visitor: {
+          id: "#{current_user.id}",
+          email: "#{current_user.email}"
+        }
+      });
+  -# - if current_organization.present? and current_organization.id.present?
+  -#   :javascript
+  -#     $.extend(true, window.pendo_options,{
+  -#       account: {
+  -#         id: "#{current_organization.id}",
+  -#         name: "#{current_organization}",
+  -#         creationDate: "#{current_organization.created_at}"
+  -#       }
+  -#     });
