@@ -18,6 +18,9 @@
 .container
   .resource-info
     %h1= link_to "Click here to visit website", @resource.href, target: "_blank"
+    - if can? :collect_one, resource and current_user.collections.count > 0
+      = form_for resource, url: collect_one_resource_path(resource), remote: true, html: {method: :post} do |f|
+        = f.collection_select(:collection_ids, current_user.collections, :id, :to_s, {}, {multiple: true, class: "selectpicker resource-collection-ids"})
     %p= "Last updated #{time_ago_in_words @resource.updated_at} ago"
   - if @collections.present?
     .resource-collections
