@@ -1,1 +1,2 @@
-console.log("successfully updated user's resource collection.");
+var $item = $('#resource_<%= @resource_collection.resource.id %>');
+$item.find(".resource-item--text--description--text").html('<%= @resource_collection.description %>');

@@ -11,7 +11,7 @@
           %span.resource-item--text--description
             - if current_user == @collection.owner
               = form_for rc, remote: true, html: {method: :put} do |f|
-                = f.text_area :description, placeholder: rc.description
+                = f.text_area :description, placeholder: rc.description, class: "js-resource-collection-description", id: ("resource-collection-description_" + rc.id.to_s)
             - if rc.description.present?
               .resource-item--text--description--text= rc.description
             - else
