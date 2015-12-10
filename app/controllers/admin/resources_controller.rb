@@ -1,4 +1,4 @@
-class Admins::ResourcesController < AdminsController
+class Admin::ResourcesController < AdminsController
   before_action :set_resource, only: [:show, :edit, :update]
 
   authorize_resource

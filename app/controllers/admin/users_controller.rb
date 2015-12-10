@@ -1,10 +1,13 @@
-class Admins::UsersController < AdminsController
+class Admin::UsersController < AdminsController
   before_action :set_user, only: [:show, :feature]
 
   authorize_resource
   
   def index
     @users = User.all
+  end
+
+  def show
   end
 
   # PUT /admins/collections/:id/feature

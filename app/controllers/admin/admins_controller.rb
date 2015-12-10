@@ -1,4 +1,4 @@
-class Admins::AdminsController < AdminsController
+class Admin::AdminsController < AdminsController
 	authorize_resource
   
   def index
