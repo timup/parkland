@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 
   check_authorization
   
-  layout "admins"
+  layout "admin"
 
   def current_ability
     @current_ability ||= AdminAbility.new(current_admin)

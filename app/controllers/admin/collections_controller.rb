@@ -1,4 +1,4 @@
-class Admins::CollectionsController < AdminsController
+class Admin::CollectionsController < AdminsController
   before_action :set_collection, only: [:show, :feature]
 
 	authorize_resource

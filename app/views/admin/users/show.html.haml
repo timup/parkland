@@ -1,0 +1,30 @@
+.admin-users
+  .admin-page-header
+    .pull-left
+      = button_to feature_admin_user_path(@user), method: :put, remote: true, class: "btn btn-link btn-feature", form_class: "js-feature-item" do
+        %span.h2
+          %i.fa.fa-star.feature-star{ class: ("featured" if @user.featured_at )}
+    %span.h2= @user.name
+
+
+  .row
+    .col-sm-4
+      .image
+        = image_tag @user.image
+    .col-sm-8
+      %h4 Headline
+      %p= @user.headline
+      - if @user.slug.present?
+        %h4 Slug
+        %p= @user.slug
+      %h4 Signed Up
+      %p= l @user.created_at, format: :date
+
+  
+  .row
+    .col-sm-12
+      %h3 Colllections
+      - if @user.collections.present?
+        = render "admin/collections/table", collections: @user.collections
+      - else
+        %em This user has not created any collections.
