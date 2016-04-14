@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @collections = @user.collections
-    @resources = @user.resources
   end
 
   private
